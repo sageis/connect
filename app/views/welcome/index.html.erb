@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Mobile: Theme Download</title>
+	<link rel="stylesheet" href="themes/my-custom-theme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <title>Connect</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 	<body>
+		<!-- Script -->
+		<script src="index.js"></script>
+
+		<!-- Login Page -->
+		<div data-role="page" id = "login">
+		  <div data-role="header" style = "background: #66CCFF">
+		    <h1 style = "color: white">connect</h1>
+		  </div>
+
+		  <div data-role="main" class="ui-content">
+		    <form method="post" action="demoform.asp">
+		      <div class="ui-field-contain">
+		        <input type="text" name="username" id="username" placeholder = "username"> 
+		        <br>      
+		        <input type="password" name="password" id="password" placeholder="password">
+		        <br>
+		        <br>
+		      </div>
+		      <a href="homepage.html" data-role="button" data-mini="true">login</a>
+		      <br>
+		      <div style="text-align: center">
+		      	<a href="new_account.html" data-role="button" data-inline="true" data-mini="true">new account</a>
+		      </div>
+		    </form>
+		  </div>
+		</div> 
 	<div class="welcome_message">
 		Greetings!
 	 	<%= link_to("Log In", controller: "users", action: "login") %>
@@ -15,3 +49,4 @@
 
 	</body>
 </html>
+
