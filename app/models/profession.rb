@@ -1,3 +1,4 @@
 class Profession < ActiveRecord::Base
-	has_many :programs
+	belongs_to :user
+	belongs_to :program
 end
