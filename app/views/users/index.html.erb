@@ -1,0 +1,17 @@
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+
+<div> Before </div>
+<% if (@all_users == nil) then %>
+	<h1>WTF NO USERS </h1>
+<% else %>
+	<% count = 0 %>
+	<% for user in @all_users %>
+		<h2> Hello <%= user.first_name + " " + user.last_name %> 
+		<%= ". Count: " + count.to_s%>  </h2>
+		<% count += 1 %>
+	<% end %>
+<% end %>
+
+
+<div> After </div>
