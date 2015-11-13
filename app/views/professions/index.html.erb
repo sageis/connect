@@ -1,0 +1,19 @@
+<h1>Professions#index jifosuo</h1>
+<p>Find me in app/views/professions/index.html.erb</p>
+
+<div> Before </div>
+<% if (@all_users == nil) then %>
+	<h1>WTF NO PROFESSIONS </h1>
+<% else %>
+	<% for profession in @all_professions %>
+		<div> <%= profession.title %> </div>
+	<% end %>
+<% end %>
+
+
+<% @all_professions.each do |profession| %>
+	<div> <% "#{profession.title}" %> </div>
+<% end %>
+
+
+<div> After </div>
