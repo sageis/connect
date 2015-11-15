@@ -6,3 +6,9 @@
 <% else %>
 	<%= @quiz_results.build %>
 <% end %>
+
+<% for profession in @all_professions %>
+	<br/>
+	<%= profession.title %>
+
+<% end %>

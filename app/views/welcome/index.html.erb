@@ -23,7 +23,8 @@
 		  </div>
 
 		  <div data-role="main" class="ui-content">
-		    <form method="post" action="demoform.asp">
+		    <!-- <form method="post" action="demoform.asp"> -->
+		    <%= form_for(@user, :method => :post, :url => {:action => :post_login, :id => @user.id}) do |form| %>
 		      <div class="ui-field-contain">
 		        <input type="text" name="username" id="username" placeholder = "username"> 
 		        <br>      
@@ -36,13 +37,14 @@
 		      <div style="text-align: center">
 		      	<a href="new_account.html" data-role="button" data-inline="true" data-mini="true">new account</a>
 		      </div>
-		    </form>
+		    <% end %>
+		    <!-- </form> -->
 		  </div>
 		</div> 
-	<div class="welcome_message">
+	<!-- <div class="welcome_message">
 		Greetings!
 	 	<%= link_to("Log In", controller: "users", action: "index") %>
-	</div>
+	</div> -->
 	<%= yield %>
 
 	</body>
