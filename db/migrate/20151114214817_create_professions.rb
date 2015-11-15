@@ -4,6 +4,7 @@ class CreateProfessions < ActiveRecord::Migration
 			t.text :description
 		    t.string :title
 		    t.string :file_name
+		    t.integer :quiz_id
 		    t.timestamps null: false
 		  	t.timestamps null: false
 		end

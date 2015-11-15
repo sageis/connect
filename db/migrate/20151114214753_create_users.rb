@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
 			t.string :first_name
 			t.string :last_name
 			t.string :login
+			t.integer :quiz_id
 			t.timestamps null: false
 		end
 	end

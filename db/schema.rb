@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115203053) do
+ActiveRecord::Schema.define(version: 20151115213420) do
 
   create_table "professions", force: :cascade do |t|
     t.text     "description"
     t.string   "title"
     t.string   "file_name"
+    t.integer  "quiz_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -34,6 +35,29 @@ ActiveRecord::Schema.define(version: 20151115203053) do
     t.string   "website_link"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.float    "writing"
+    t.float    "speaking"
+    t.float    "persuading"
+    t.float    "taking_initiative"
+    t.float    "analyzing"
+    t.float    "creating"
+    t.float    "problem_solving"
+    t.float    "helping"
+    t.float    "physical_activities"
+    t.float    "organizing"
+    t.float    "team_work"
+    t.float    "investigating"
+    t.float    "build"
+    t.float    "growth"
+    t.float    "money"
+    t.float    "security"
+    t.integer  "user_id"
+    t.integer  "profession_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -59,6 +83,7 @@ ActiveRecord::Schema.define(version: 20151115203053) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "login"
+    t.integer  "quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

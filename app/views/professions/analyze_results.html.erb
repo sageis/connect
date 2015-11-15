@@ -1,0 +1,8 @@
+<h1>Analyze Results </h1>
+
+<%= @sage.first_name %>
+<% if (@quiz_results == nil) %><br/>
+	<%= "No quiz results" %>
+<% else %>
+	<%= @quiz_results.build %>
+<% end %>
