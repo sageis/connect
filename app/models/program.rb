@@ -1,5 +1,5 @@
 class Program < ActiveRecord::Base
-	has_many :reviews
 	belongs_to :user
+	has_many :reviews
 	has_many :professions
 end

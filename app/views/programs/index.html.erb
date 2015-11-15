@@ -1,2 +1,11 @@
-<h1>Programs#index</h1>
-<p>Find me in app/views/programs/index.html.erb</p>
+<h1> Did this work </h1>
+<% if (@all_programs == nil) then %>
+	<%= "@all_programs == nil" %>
+<% else %>
+	<% for program in @all_programs %>
+		<%= program.description %>
+	<% end %>
+	<%= "those are all the programs" %>
+<% end %>
+
+
