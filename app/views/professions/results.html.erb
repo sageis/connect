@@ -1,0 +1,8 @@
+<h1>This is the display results page! </h1>
+<%= "before" %>
+<% for profession in @all_professions %>
+
+	<div> <%= profession.title %> </div>
+	
+<% end %>
+<%= "after" %>

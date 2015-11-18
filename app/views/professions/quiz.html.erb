@@ -1,1 +1,325 @@
-<h1> This is the quiz! </h1>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+  <style>
+
+    /* Blue color is: #0099FF;
+    *  Green color is: #00EC74;
+    *  Blue yes/unsure/no color is: #32A5E9;
+    *  Light Green: #C1F38D;
+    */
+
+
+    #home_icon {
+      background-color: #0099FF;
+      border-color: #0099FF;
+      border-bottom-width: 5px;
+      border-bottom-color: #66ccff;
+    }
+
+    #interests_icon {
+      background-color: #0099FF;
+      border-color: #0099FF;
+      border-bottom-width: 5px;
+      border-bottom-color: #66ccff;
+    }
+
+    #search_icon {
+      background-color: #0099FF;
+      border-color: #0099FF;
+      border-bottom-width: 5px;
+      border-bottom-color: #66ccff;
+    }
+
+    #logout_icon {
+      background-color: #0099FF;
+      border-color: #0099FF;
+      border-bottom-width: 5px;
+      border-bottom-color: #66ccff;
+    }
+
+    #quizNo {
+      background-color: #32A5E9;
+      border-color: #32A5E9;
+      color: white;
+      font-family: 'Open Sans';
+      text-shadow: none;
+    }
+
+    #quizUnsure {
+      background-color: #32A5E9;
+      border-color: #32A5E9;
+      color: white;
+      font-family: 'Open Sans';
+      text-shadow: none;
+    }
+
+    #quizYes {
+      background-color: #32A5E9;
+      border-color: #32A5E9;
+      color: white;
+      font-family: 'Open Sans';
+      text-shadow: none;
+    }
+
+    h1 {
+      font-family: 'Open Sans';
+      font-size: 30px;
+      text-transform: uppercase;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 26.4px;
+      color: #808080;
+    }
+
+    h2 {
+      font-family: 'Open Sans';
+      font-size: 20px;
+      text-transform: lowercase;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 26.4px;
+      text-align: center;
+      color: #808080;
+    }
+
+
+
+  </style>
+
+
+</head>
+<body>
+
+<script>
+
+$(document).ready(function(){
+
+  /* Function that puts a hover listener on the navigation
+   * bar and turns it a darker blue if the mouse hovers over it.
+   */
+    $(".ui-btn-icon-top").hover(function(){
+        $(this).css("background-color", "#035B8F",
+                    "border-color", "#035B8F", 
+                    "border-bottom-width", "5px",
+                    "border-bottom-color", "#66ccff");
+        }, function(){
+        $(this).css("background-color", "#0099FF", 
+                    "border-color", "#0099FF", 
+                    "border-bottom-width", "5px", 
+                    "border-bottom-color", "#66ccff");
+    });
+
+    $('.options-buttons').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+       mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          console.log(this);
+          $(this).off('mouseleave');
+      }
+    });
+
+});
+
+
+</script>
+
+
+<!-- Homepage -->
+<div data-role="page">
+
+  <!--Navigation Bar-->
+  <div data-role="navbar">
+    <ul>
+      <li><a href="homepage.html" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
+      <li><a href="myinterests.html" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
+      <li><a href="search.html" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
+      <li><a href="index.html" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
+    </ul>
+  </div>
+
+  <!--Start of Quiz-->
+  <!--<div data-role="content">-->
+    <h1><center>professions quiz</center></h1>
+      <%= form_for(@new_quiz, :method => :post, :url => {:action => :create, :id => @new_quiz.id}) do |form| %>
+        <!-- <table class="form">
+          <tr class = "login_row"> -->
+            <div>
+            <%= form.submit "Submit Answers" %>
+          </div>
+         <!--  </tr>
+          <table> -->
+      <% end %>
+            <h2>Writing</h2>
+              <center>
+                <div data-role="controlgroup" data-type="horizontal" data-mini="true" class = "writing-quiz-section">
+                  <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+                  <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+                  <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+                </div>
+              </center>       
+          <!-- </tr>
+
+          <tr> -->
+            <h2>Speaking</h2>
+            <center>
+              <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+                <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+                <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+              </div>
+            </center>
+          <!-- </tr>
+
+          <tr> -->
+            <h2>Persuading</h2>
+            <center>
+              <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+                <a hhref="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+                <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+              </div>
+            </center>
+          <!-- </tr>
+
+          <tr> -->
+            <h2>Taking Initiative</h2>
+            <center>
+              <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+                <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+                <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+              </div>
+            </center>
+         <!--  </tr>
+
+          <tr> -->
+            <h2>Analyzing</h2>
+            <center>
+              <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+                <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+                <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+              </div>
+            </center>
+          <!-- </tr>
+
+          <tr> -->
+          
+
+
+
+          <tr>
+          </tr>
+          <tr>
+          </tr>
+          <tr>
+          </tr>
+          <tr>
+          </tr>
+          <tr>
+          </tr>
+
+        
+      
+      <h2>Creating</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+        </div>
+      </center>
+
+      <h2>Problem Solving</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+        </div>
+      </center>
+
+      <h2>Helping</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+        </div>
+      </center>
+
+      <h2>Physical Activities</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+        </div>
+      </center>
+
+      <h2>Organizing</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+        </div>
+      </center>
+
+      <h2>Working in Teams</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+        </div>
+      </center>
+
+      <h2>Investigating</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+        </div>
+      </center>
+
+      <h2>Build</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+        </div>
+      </center>
+
+
+
+<!--</div>-->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
