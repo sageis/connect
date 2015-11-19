@@ -11,11 +11,9 @@ class ProfessionsController < ApplicationController
 
 	def create 
 		# raise params.inspect
-		puts params.inspect
 		@new_quiz = Quiz.find_by_id(params[:id])
-		# @new_quiz.file_name = params[:]
-		@new_quiz.writing = params[:profession][:writing]
-		if (@user.save) then
+		#@new_quiz.writing = params[:writing][:writing]
+		if (@new_quiz.save) then
 			redirect_to(:controller => "professions", :action => "index")
 		end
 

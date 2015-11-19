@@ -114,18 +114,346 @@ $(document).ready(function(){
                     "border-bottom-color", "#66ccff");
     });
 
-    $('.options-buttons').on({
+    // $('.options-buttons').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       $(this).off('mouseleave');
+    //   }
+    // });
+
+
+    $('.writing-quiz-section').on({
       mouseover: function(){
           $(this).css("background-color", '#035B8F',
                        "border-color", '#035B8F');
       },
-       mouseleave: function(){
+      mouseleave: function(){
           $(this).css("background-color", '#32A5E9',
                        "border-color:", '#32A5E9');
       },
       click: function(){
-          console.log(this);
-          $(this).off('mouseleave');
+          var objects = document.getElementsByClassName("writing-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+    $('.speaking-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("speaking-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+    $('.persuading-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("persuading-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+
+    $('.initiative-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("initiative-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+    $('.analyzing-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("analyzing-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+    $('.creating-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("creating-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+    $('.problemsolving-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("problemsolving-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+    $('.helping-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("helping-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+    $('.physical-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("physical-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+    $('.organizing-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("organizing-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+    $('.teamwork-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("teamwork-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+    
+    $('.investigating-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("investigating-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+      }
+    });
+
+    
+    $('.build-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("build-quiz-section");
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
       }
     });
 
@@ -149,164 +477,156 @@ $(document).ready(function(){
   </div>
 
   <!--Start of Quiz-->
-  <!--<div data-role="content">-->
+  <!--
+
+      Quiz Section Class Names:
+      1. writing-quiz-section
+      2. speaking-quiz-section
+      3. persuading-quiz-section
+      4. initiative-quiz-section
+      5.analyzing-quiz-section
+      6. creating-quiz-section
+      7. problemsolving-quiz-section
+      8. helping-quiz-section
+      9. physical-quiz-section
+      10. organizing-quiz-section
+      11. teamwork-quiz-section
+      12. investigating-quiz-section
+      13. build-quiz-section
+
+  -->
+  <div data-role="content">
     <h1><center>professions quiz</center></h1>
       <%= form_for(@new_quiz, :method => :post, :url => {:action => :create, :id => @new_quiz.id}) do |form| %>
-        <!-- <table class="form">
-          <tr class = "login_row"> -->
-            <div>
-            <%= form.submit "Submit Answers" %>
-          </div>
-         <!--  </tr>
-          <table> -->
-      <% end %>
-            <h2>Writing</h2>
-              <center>
-                <div data-role="controlgroup" data-type="horizontal" data-mini="true" class = "writing-quiz-section">
-                  <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-                  <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-                  <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
-                </div>
-              </center>       
-          <!-- </tr>
 
-          <tr> -->
-            <h2>Speaking</h2>
-            <center>
-              <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-                <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-                <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-                <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
-              </div>
-            </center>
-          <!-- </tr>
+      <h2>Writing</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
 
-          <tr> -->
-            <h2>Persuading</h2>
-            <center>
-              <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-                <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-                <a hhref="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-                <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
-              </div>
-            </center>
-          <!-- </tr>
-
-          <tr> -->
-            <h2>Taking Initiative</h2>
-            <center>
-              <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-                <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-                <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-                <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
-              </div>
-            </center>
-         <!--  </tr>
-
-          <tr> -->
-            <h2>Analyzing</h2>
-            <center>
-              <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-                <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-                <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-                <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
-              </div>
-            </center>
-          <!-- </tr>
-
-          <tr> -->
+          <a href="#" data-role="button" id="quizNo" class = "writing-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "writing-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "writing-quiz-section">Yes</a>
           
+        </div>
+      </center>
 
 
+      <h2>Speaking</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "speaking-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "speaking-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "speaking-quiz-section">Yes</a>
+        </div>
+      </center>
 
-          <tr>
-          </tr>
-          <tr>
-          </tr>
-          <tr>
-          </tr>
-          <tr>
-          </tr>
-          <tr>
-          </tr>
 
-        
-      
+      <h2>Persuading</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "persuading-quiz-section">No</a>
+          <a hhref="#" data-role="button" id="quizUnsure" class = "persuading-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "persuading-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <h2>Taking Initiative</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "initiative-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "initiative-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "initiative-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <h2>Analyzing</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "analyzing-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "analyzing-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "analyzing-quiz-section">Yes</a>
+        </div>
+      </center>
+
       <h2>Creating</h2>
       <center>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+          <a href="#" data-role="button" id="quizNo" class = "creating-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "creating-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "creating-quiz-section">Yes</a>
         </div>
       </center>
 
       <h2>Problem Solving</h2>
       <center>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+          <a href="#" data-role="button" id="quizNo" class = "problemsolving-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "problemsolving-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "problemsolving-quiz-section">Yes</a>
         </div>
       </center>
 
       <h2>Helping</h2>
       <center>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+          <a href="#" data-role="button" id="quizNo" class = "helping-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "helping-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "helping-quiz-section">Yes</a>
         </div>
       </center>
 
       <h2>Physical Activities</h2>
       <center>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+          <a href="#" data-role="button" id="quizNo" class = "physical-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "physical-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "physical-quiz-section">Yes</a>
         </div>
       </center>
 
       <h2>Organizing</h2>
       <center>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+          <a href="#" data-role="button" id="quizNo" class = "organizing-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "organizing-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "organizing-quiz-section">Yes</a>
         </div>
       </center>
 
       <h2>Working in Teams</h2>
       <center>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+          <a href="#" data-role="button" id="quizNo" class = "teamwork-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "teamwork-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "teamwork-quiz-section">Yes</a>
         </div>
       </center>
 
       <h2>Investigating</h2>
       <center>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+          <a href="#" data-role="button" id="quizNo" class = "investigating-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "investigating-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "investigating-quiz-section">Yes</a>
         </div>
       </center>
 
       <h2>Build</h2>
       <center>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <a href="#" data-role="button" id="quizNo" class = "options-buttons">No</a>
-          <a href="#" data-role="button" id="quizUnsure" class = "options-buttons">Unsure</a>
-          <a href="#" data-role="button" id="quizYes" class = "options-buttons">Yes</a>
+          <a href="#" data-role="button" id="quizNo" class = "build-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "build-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "build-quiz-section">Yes</a>
         </div>
       </center>
 
+      <br/>
+      <%= form.submit "Submit Answers" %>
+      <% end %>
 
 
-<!--</div>-->
+
+</div>
 
 </body>
 </html>
