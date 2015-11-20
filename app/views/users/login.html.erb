@@ -52,7 +52,7 @@
 
   <div data-role="main" class="ui-content">
     <!-- <form method="post" action="demoform.asp"> -->
-    <%= form_for(@user, :method => :post, :url => {:action => :post_login, :id => @user.id}) do |form| %>
+    <%= form_for(@user, :method => :post, :url => {:action => :homepage}) do |form| %>
       <div class="ui-field-contain">
         <div>
       <%= form.label(:login, "Username:")%>

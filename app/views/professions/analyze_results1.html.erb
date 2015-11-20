@@ -1,0 +1,40 @@
+<h1>Analyze Results </h1>
+
+
+<!-- 
+<%="speaking: " %>
+<%=@quiz_results.speaking%>
+<%="persuading: "%>
+<%=@quiz_results.persuading%>
+<%="taking_initiative: "%>
+<%=@quiz_results.taking_initiative%>
+<%="analyzing: "%>
+<%=@quiz_results.analyzing%>
+<%="creating: "%>
+<%=@quiz_results.creating%>
+<%="problem_solving: "%>
+<%=@quiz_results.problem_solving%>
+<h2>Should be stuff before this</h2>
+<%="helping: "%>
+<%=@quiz_results.helping%>
+<%="physical_activities: "%>
+<%=@quiz_results.physical_activities%>
+<%="organizing: "%>
+<%=@quiz_results.organizing%>
+<%="team_work: "%>
+<%=@quiz_results.team_work%>
+<%="investigating: "%>
+<%=@quiz_results.investigating%>
+<%="build: "%>
+<%=@quiz_results.build%>
+<%="writing: "%>
+<%=@quiz_results.writing%>
+
+
+<h2>Now listing the profession results</h2>
+<% for result in @ranked_list %>
+	<br/>
+	<%= result.value %>
+	<%= result.profession.title %> -->
+
+<% end %>

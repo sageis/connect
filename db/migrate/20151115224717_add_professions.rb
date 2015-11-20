@@ -1,7 +1,11 @@
 class AddProfessions < ActiveRecord::Migration
 	def up
 		profession1 = Profession.new(:title => "Software Engineer", :description =>
-									"Computer science is a profession!",
+									" A software engineer is someone who designs," + 
+									" develops, tests, and maintains the software and" + 
+									" systems that make computers and other technologies" + 
+									" work. Software engineers are also called software" + 
+									" developers, coders, and computer programmers.",
 									:file_name => "computer_science.jpg")
 		quiz1 = Quiz.new(:analyzing => 1, :creating => 1, :team_work => 1,
 						:build => 1, :writing => 0, :speaking => 0, :persuading => 0,
@@ -25,7 +29,11 @@ class AddProfessions < ActiveRecord::Migration
 		# profession2.save(:validate => false)
 
 		profession3 = Profession.new(:title => "Real Estate Agent", :description =>
-									"Real Estate agent is a profession!",
+									"Real estate agents help rent, buy, and/or sell" + 
+									" property for clients. They study property listings," +
+									" interview clients, visit property sites with" +
+									" clients, and discuss strategies to either sell/buy" + 
+									" property. ",
 									:file_name => "real_estate_agent.jpg")
 		quiz3 = Quiz.new(:analyzing => 0, :creating => 0, :team_work => 0,
 						:build => 0, :writing => 0, :speaking => 0, :persuading => 1,
@@ -37,7 +45,13 @@ class AddProfessions < ActiveRecord::Migration
 		profession3.save(:validate => false)
 
 		profession4 = Profession.new(:title => "Professor", :description =>
-									"Professor is a profession!",
+									"A professor provides their students with high" +
+									" quality teaching and helps develop their skills" +
+									" and thinking. Some professors also conduct" +
+									" research while teaching and usually work closely" +
+									" with students from all ages. The type of" +
+									" college in which the professor resides affects" +
+									" their responsibilities.",
 									:file_name => "professor.jpg")
 		quiz4 = Quiz.new(:analyzing => 1, :creating => 0, :team_work => 0,
 						:build => 0, :writing => 1, :speaking => 1, :persuading => 0,
@@ -49,7 +63,14 @@ class AddProfessions < ActiveRecord::Migration
 		profession4.save(:validate => false)
 		
 		profession5 = Profession.new(:title => "Policeman", :description =>
-									"Policeman is a profession!",
+									"A police officer works with a community by" +
+									" protecting members of the public and their" +
+									" property, prevent crime, reduce the fear of" +
+									" crime, and improve the quality of life for" +
+									" people in the community. Police officers use" +
+									" technology to protect individuals, identify" +
+									" the perpetrators of crime, and ensure successful" +
+									" prosecutions against those who break the law.",
 									:file_name => "policeman.jpg")
 		quiz5 = Quiz.new(:analyzing => 1, :creating => 0, :team_work => 1,
 						:build => 0, :writing => 0, :speaking => 0, :persuading => 0,
@@ -61,7 +82,11 @@ class AddProfessions < ActiveRecord::Migration
 		profession5.save(:validate => false)
 
 		profession6 = Profession.new(:title => "Management Consulting", :description =>
-									"Management Consulting is a profession!",
+									"Management consultants help organizations" +
+									" improve their performance. They study the" +
+									" analysis of existing organizations and the" +
+									" problems they face and how they plan to" +
+									" improve upon those problems.",
 									:file_name => "management_consulting.jpg")
 		quiz6 = Quiz.new(:analyzing => 1, :creating => 0, :team_work => 1,
 						:build => 0, :writing => 1, :speaking => 1, :persuading => 1,
@@ -73,7 +98,13 @@ class AddProfessions < ActiveRecord::Migration
 		profession6.save(:validate => false)
 
 		profession7 = Profession.new(:title => "TV Producer", :description =>
-									"TV producer is a profession!",
+									"Television producers play an integral role in" +
+									" television, film, and video industries. A" +
+									" producer oversees each project from the" +
+									" beginning to the very end, and may be" +
+									" involved in the marketing and distribution" +
+									" processes. Producers are also in charge of" +
+									" arranging funding for the project.",
 									:file_name => "tv_producer.jpg")
 		quiz7 = Quiz.new(:analyzing => 0, :creating => 1, :team_work => 1,
 						:build => 0, :writing => 0, :speaking => 1, :persuading => 1,

@@ -23,7 +23,23 @@ class ProfessionsController < ApplicationController
 	end
 
 	def results
-		@all_professions = Profession.all
+		index = 0
+		for result in @@ranked_list
+			if (index == 0)
+				@first = Profession.find_by_id(result.profession.id)
+			elsif (index == 1)
+				@second = Profession.find_by_id(result.profession.id)
+			elsif (index == 2)
+				@third = Profession.find_by_id(result.profession.id)
+			elsif (index == 3) 
+				@fourth = Profession.find_by_id(result.profession.id)
+			elsif (index == 4) 
+				@fifth = Profession.find_by_id(result.profession.id)
+			elsif (index == 5) 
+				break
+			end
+		  index += 1
+		end
 	end
 
 	def analyze_results
@@ -88,6 +104,7 @@ class ProfessionsController < ApplicationController
 			index += 1
 		end
 
-		@ranked_list = professions_list.sort { |a,b| b.value <=> a.value }
+		@@ranked_list = professions_list.sort { |a,b| b.value <=> a.value }
+		redirect_to(:controller => "professions", :action => "results")
 	end
 end
