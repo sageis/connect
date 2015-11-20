@@ -1,0 +1,1089 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+  <style>
+
+    /* Blue color is: #0099FF;
+    *  Green color is: #00EC74;
+    *  Blue yes/unsure/no color is: #32A5E9;
+    *  Light Green: #C1F38D;
+    */
+
+
+    #home_icon {
+      background-color: #0099FF;
+      border-color: #0099FF;
+      border-bottom-width: 5px;
+      border-bottom-color: #66ccff;
+    }
+
+    #interests_icon {
+      background-color: #0099FF;
+      border-color: #0099FF;
+      border-bottom-width: 5px;
+      border-bottom-color: #66ccff;
+    }
+
+    #search_icon {
+      background-color: #0099FF;
+      border-color: #0099FF;
+      border-bottom-width: 5px;
+      border-bottom-color: #66ccff;
+    }
+
+    #logout_icon {
+      background-color: #0099FF;
+      border-color: #0099FF;
+      border-bottom-width: 5px;
+      border-bottom-color: #66ccff;
+    }
+
+    #quizNo {
+      background-color: #32A5E9;
+      border-color: #32A5E9;
+      color: white;
+      font-family: 'Open Sans';
+      text-shadow: none;
+    }
+
+    #quizUnsure {
+      background-color: #32A5E9;
+      border-color: #32A5E9;
+      color: white;
+      font-family: 'Open Sans';
+      text-shadow: none;
+    }
+
+    #quizYes {
+      background-color: #32A5E9;
+      border-color: #32A5E9;
+      color: white;
+      font-family: 'Open Sans';
+      text-shadow: none;
+    }
+
+    h1 {
+      font-family: 'Open Sans';
+      font-size: 30px;
+      text-transform: uppercase;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 26.4px;
+      color: #808080;
+    }
+
+    h2 {
+      font-family: 'Open Sans';
+      font-size: 20px;
+      text-transform: lowercase;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 26.4px;
+      text-align: center;
+      color: #808080;
+    }
+
+
+
+  </style>
+
+
+</head>
+<body>
+
+<script>
+
+$(document).ready(function(){
+
+  /* Function that puts a hover listener on the navigation
+   * bar and turns it a darker blue if the mouse hovers over it.
+   */
+    $(".ui-btn-icon-top").hover(function(){
+        $(this).css("background-color", "#035B8F",
+                    "border-color", "#035B8F", 
+                    "border-bottom-width", "5px",
+                    "border-bottom-color", "#66ccff");
+        }, function(){
+        $(this).css("background-color", "#0099FF", 
+                    "border-color", "#0099FF", 
+                    "border-bottom-width", "5px", 
+                    "border-bottom-color", "#66ccff");
+    });
+
+    // $('.options-buttons').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       $(this).off('mouseleave');
+    //   }
+    // });
+
+
+
+
+    
+
+    // $('.persuading-quiz-section').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       var objects = document.getElementsByClassName("persuading-quiz-section");
+    //       for (var i = 0; i < objects.length; i++) {
+    //         if (objects[i] != this) {
+    //           $(objects[i]).bind('mouseleave', function() {
+    //             $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //           });
+    //           $(objects[i]).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //         } 
+    //       }
+    //       $(this).unbind('mouseleave');
+    //   }
+    // });
+
+
+    // $('.initiative-quiz-section').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       var objects = document.getElementsByClassName("initiative-quiz-section");
+    //       for (var i = 0; i < objects.length; i++) {
+    //         if (objects[i] != this) {
+    //           $(objects[i]).bind('mouseleave', function() {
+    //             $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //           });
+    //           $(objects[i]).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //         } 
+    //       }
+    //       $(this).unbind('mouseleave');
+    //   }
+    // });
+
+    // $('.analyzing-quiz-section').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       var objects = document.getElementsByClassName("analyzing-quiz-section");
+    //       for (var i = 0; i < objects.length; i++) {
+    //         if (objects[i] != this) {
+    //           $(objects[i]).bind('mouseleave', function() {
+    //             $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //           });
+    //           $(objects[i]).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //         } 
+    //       }
+    //       $(this).unbind('mouseleave');
+    //   }
+    // });
+
+    // $('.creating-quiz-section').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       var objects = document.getElementsByClassName("creating-quiz-section");
+    //       for (var i = 0; i < objects.length; i++) {
+    //         if (objects[i] != this) {
+    //           $(objects[i]).bind('mouseleave', function() {
+    //             $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //           });
+    //           $(objects[i]).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //         } 
+    //       }
+    //       $(this).unbind('mouseleave');
+    //   }
+    // });
+
+    // $('.problemsolving-quiz-section').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       var objects = document.getElementsByClassName("problemsolving-quiz-section");
+    //       for (var i = 0; i < objects.length; i++) {
+    //         if (objects[i] != this) {
+    //           $(objects[i]).bind('mouseleave', function() {
+    //             $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //           });
+    //           $(objects[i]).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //         } 
+    //       }
+    //       $(this).unbind('mouseleave');
+    //   }
+    // });
+
+    // $('.helping-quiz-section').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       var objects = document.getElementsByClassName("helping-quiz-section");
+    //       for (var i = 0; i < objects.length; i++) {
+    //         if (objects[i] != this) {
+    //           $(objects[i]).bind('mouseleave', function() {
+    //             $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //           });
+    //           $(objects[i]).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //         } 
+    //       }
+    //       $(this).unbind('mouseleave');
+    //   }
+    // });
+
+    // $('.physical-quiz-section').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       var objects = document.getElementsByClassName("physical-quiz-section");
+    //       for (var i = 0; i < objects.length; i++) {
+    //         if (objects[i] != this) {
+    //           $(objects[i]).bind('mouseleave', function() {
+    //             $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //           });
+    //           $(objects[i]).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //         } 
+    //       }
+    //       $(this).unbind('mouseleave');
+    //   }
+    // });
+
+    // $('.organizing-quiz-section').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       var objects = document.getElementsByClassName("organizing-quiz-section");
+    //       for (var i = 0; i < objects.length; i++) {
+    //         if (objects[i] != this) {
+    //           $(objects[i]).bind('mouseleave', function() {
+    //             $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //           });
+    //           $(objects[i]).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //         } 
+    //       }
+    //       $(this).unbind('mouseleave');
+    //   }
+    // });
+
+    // $('.teamwork-quiz-section').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       var objects = document.getElementsByClassName("teamwork-quiz-section");
+    //       for (var i = 0; i < objects.length; i++) {
+    //         if (objects[i] != this) {
+    //           $(objects[i]).bind('mouseleave', function() {
+    //             $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //           });
+    //           $(objects[i]).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //         } 
+    //       }
+    //       $(this).unbind('mouseleave');
+    //   }
+    // });
+
+    
+    // $('.investigating-quiz-section').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       var objects = document.getElementsByClassName("investigating-quiz-section");
+    //       for (var i = 0; i < objects.length; i++) {
+    //         if (objects[i] != this) {
+    //           $(objects[i]).bind('mouseleave', function() {
+    //             $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //           });
+    //           $(objects[i]).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //         } 
+    //       }
+    //       $(this).unbind('mouseleave');
+    //   }
+    // });
+
+    
+    // $('.build-quiz-section').on({
+    //   mouseover: function(){
+    //       $(this).css("background-color", '#035B8F',
+    //                    "border-color", '#035B8F');
+    //   },
+    //   mouseleave: function(){
+    //       $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //   },
+    //   click: function(){
+    //       var objects = document.getElementsByClassName("build-quiz-section");
+    //       for (var i = 0; i < objects.length; i++) {
+    //         if (objects[i] != this) {
+    //           $(objects[i]).bind('mouseleave', function() {
+    //             $(this).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //           });
+    //           $(objects[i]).css("background-color", '#32A5E9',
+    //                    "border-color:", '#32A5E9');
+    //         } 
+    //       }
+    //       $(this).unbind('mouseleave');
+    //   }
+    // });
+
+});
+
+
+</script>
+
+
+<!-- Homepage -->
+<div data-role="page">
+
+  <!--Navigation Bar-->
+  <div data-role="navbar">
+    <ul>
+      <li><a href="homepage.html" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
+      <li><a href="myinterests.html" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
+      <li><a href="search.html" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
+      <li><a href="index.html" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
+    </ul>
+  </div>
+
+  <!--Start of Quiz-->
+  <!--
+
+      Quiz Section Class Names:
+      1. writing-quiz-section
+      2. speaking-quiz-section
+      3. persuading-quiz-section
+      4. initiative-quiz-section
+      5.analyzing-quiz-section
+      6. creating-quiz-section
+      7. problemsolving-quiz-section
+      8. helping-quiz-section
+      9. physical-quiz-section
+      10. organizing-quiz-section
+      11. teamwork-quiz-section
+      12. investigating-quiz-section
+      13. build-quiz-section
+
+  -->
+  <div data-role="content">
+    <h1><center>professions quiz</center></h1>
+      <%= form_for(@new_quiz, :method => :post, :url => {:action => :analyze_results, :id => @new_quiz.id}) do |form| %>
+
+<!--Writing -->
+      <h2>Writing</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+
+          <a href="#" data-role="button" id="quizNo" class = "writing-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "writing-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "writing-quiz-section">Yes</a>
+          <div id="writing_field"> </div>
+
+        </div>
+      </center>
+
+      <script>
+      $('.writing-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("writing-quiz-section");
+          var field = document.getElementById("writing_field");
+          console.log(this.id);
+          if (this.id == "quizYes") {
+            console.log("marking writing as 1");
+            <% @new_quiz.writing = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id == "quizUnsure") {
+            <% @new_quiz.writing = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id == "quizNo") {
+            console.log("marking writing as -1");
+            <% @new_quiz.writing = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+<!--Speaking -->
+      <h2>Speaking</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "speaking-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "speaking-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "speaking-quiz-section">Yes</a>
+        </div>
+      </center>
+      <script>
+      $('.speaking-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("speaking-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.speaking = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.speaking = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.speaking = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+<!-- Persuading -->
+      <h2>Persuading</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "persuading-quiz-section">No</a>
+          <a hhref="#" data-role="button" id="quizUnsure" class = "persuading-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "persuading-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <script>
+      $('.persuading-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("persuading-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.persuading = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.persuading = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.persuading = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+<!-- Taking initiative -->
+      <h2>Taking Initiative</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "initiative-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "initiative-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "initiative-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <script>
+      $('.initiative-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("initiative-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.taking_initiative = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.taking_initiative = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.taking_initiative = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+<!--Analyzing -->
+      <h2>Analyzing</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "analyzing-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "analyzing-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "analyzing-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <script>
+      $('.analyzing-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("analyzing-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.analyzing = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.analyzing = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.analyzing = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+<!-- Creating -->
+      <h2>Creating</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "creating-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "creating-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "creating-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <script>
+      $('.creating-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("creating-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.creating = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.creating = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.creating = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+<!--Problem Solving -->
+      <h2>Problem Solving</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "problemsolving-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "problemsolving-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "problemsolving-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <script>
+      $('.problemsolving-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("problemsolving-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.problem_solving = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.problem_solving = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.problem_solving = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+      <h2>Helping</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "helping-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "helping-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "helping-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <script>
+      $('.helping-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("helping-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.helping = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.helping = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.helping = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+      <h2>Physical Activities</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "physical-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "physical-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "physical-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <script>
+      $('.physical-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("physical-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.physical_activities = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.physical_activities = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.physical_activities = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+      <h2>Organizing</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "organizing-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "organizing-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "organizing-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <script>
+      $('.organizing-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("organizing-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.organizing = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.organizing = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.organizing = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+      <h2>Working in Teams</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "teamwork-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "teamwork-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "teamwork-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <script>
+      $('.teamwork-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("teamwork-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.team_work = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.team_work = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.team_work = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+      <h2>Investigating</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "investigating-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "investigating-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "investigating-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <script>
+      $('.investigating-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("investigating-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.investigating = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.investigating = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.investigating = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+      <h2>Build</h2>
+      <center>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a href="#" data-role="button" id="quizNo" class = "build-quiz-section">No</a>
+          <a href="#" data-role="button" id="quizUnsure" class = "build-quiz-section">Unsure</a>
+          <a href="#" data-role="button" id="quizYes" class = "build-quiz-section">Yes</a>
+        </div>
+      </center>
+
+      <script>
+      $('.build-quiz-section').on({
+      mouseover: function(){
+          $(this).css("background-color", '#035B8F',
+                       "border-color", '#035B8F');
+      },
+      mouseleave: function(){
+          $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+      },
+      click: function(){
+          var objects = document.getElementsByClassName("build-quiz-section");
+          if (this.id == "quizYes") {
+            <% @new_quiz.build = 1 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizUnsure") {
+            <% @new_quiz.build = 0 %>
+            <% @new_quiz.save %>
+          } else if (this.id = "quizNo") {
+            <% @new_quiz.build = -1 %>
+            <% @new_quiz.save %>
+          }
+          for (var i = 0; i < objects.length; i++) {
+            if (objects[i] != this) {
+              $(objects[i]).bind('mouseleave', function() {
+                $(this).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+              });
+              $(objects[i]).css("background-color", '#32A5E9',
+                       "border-color:", '#32A5E9');
+            } 
+          }
+          $(this).unbind('mouseleave');
+          }
+        });
+      </script>
+
+      <br/>
+      <%= form.submit "Submit Answers" %>
+      <% end %>
+
+
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
