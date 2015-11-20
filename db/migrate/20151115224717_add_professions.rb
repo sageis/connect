@@ -12,20 +12,20 @@ class AddProfessions < ActiveRecord::Migration
 		profession1.quiz_id = quiz1.id
 		profession1.save(:validate => false)
 
-		profession2 = Profession.new(:title => "Public Speaker", :description =>
-									"Public Speaking is a profession!",
-									:file_name => "public_speaker.jpg")
-		quiz2 = Quiz.new(:analyzing => 0, :creating => 0, :team_work => 0,
-						:build => 0, :writing => 0, :speaking => 1, :persuading => 1,
-						:taking_initiative => 1, :problem_solving => 0, :helping => 0,
-						:physical_activities => 0, :organizing => 0, :investigating => 0,
-						:growth => 1, :money => 0, :security => 0)
-		quiz2.save(:validate => false)
-		profession2.quiz_id = quiz2.id
-		profession2.save(:validate => false)
+		# profession2 = Profession.new(:title => "Public Speaker", :description =>
+		# 							"Public Speaking is a profession!",
+		# 							:file_name => "public_speaker.jpg")
+		# quiz2 = Quiz.new(:analyzing => 0, :creating => 0, :team_work => 0,
+		# 				:build => 0, :writing => 0, :speaking => 1, :persuading => 1,
+		# 				:taking_initiative => 1, :problem_solving => 0, :helping => 0,
+		# 				:physical_activities => 0, :organizing => 0, :investigating => 0,
+		# 				:growth => 1, :money => 0, :security => 0)
+		# quiz2.save(:validate => false)
+		# profession2.quiz_id = quiz2.id
+		# profession2.save(:validate => false)
 
 		profession3 = Profession.new(:title => "Real Estate Agent", :description =>
-									"Computer science is a profession!",
+									"Real Estate agent is a profession!",
 									:file_name => "real_estate_agent.jpg")
 		quiz3 = Quiz.new(:analyzing => 0, :creating => 0, :team_work => 0,
 						:build => 0, :writing => 0, :speaking => 0, :persuading => 1,
@@ -37,7 +37,7 @@ class AddProfessions < ActiveRecord::Migration
 		profession3.save(:validate => false)
 
 		profession4 = Profession.new(:title => "Professor", :description =>
-									"Public Speaking is a profession!",
+									"Professor is a profession!",
 									:file_name => "professor.jpg")
 		quiz4 = Quiz.new(:analyzing => 1, :creating => 0, :team_work => 0,
 						:build => 0, :writing => 1, :speaking => 1, :persuading => 0,
@@ -49,7 +49,7 @@ class AddProfessions < ActiveRecord::Migration
 		profession4.save(:validate => false)
 		
 		profession5 = Profession.new(:title => "Policeman", :description =>
-									"Public Speaking is a profession!",
+									"Policeman is a profession!",
 									:file_name => "policeman.jpg")
 		quiz5 = Quiz.new(:analyzing => 1, :creating => 0, :team_work => 1,
 						:build => 0, :writing => 0, :speaking => 0, :persuading => 0,
@@ -61,7 +61,7 @@ class AddProfessions < ActiveRecord::Migration
 		profession5.save(:validate => false)
 
 		profession6 = Profession.new(:title => "Management Consulting", :description =>
-									"Public Speaking is a profession!",
+									"Management Consulting is a profession!",
 									:file_name => "management_consulting.jpg")
 		quiz6 = Quiz.new(:analyzing => 1, :creating => 0, :team_work => 1,
 						:build => 0, :writing => 1, :speaking => 1, :persuading => 1,
@@ -73,7 +73,7 @@ class AddProfessions < ActiveRecord::Migration
 		profession6.save(:validate => false)
 
 		profession7 = Profession.new(:title => "TV Producer", :description =>
-									"Public Speaking is a profession!",
+									"TV producer is a profession!",
 									:file_name => "tv_producer.jpg")
 		quiz7 = Quiz.new(:analyzing => 0, :creating => 1, :team_work => 1,
 						:build => 0, :writing => 0, :speaking => 1, :persuading => 1,

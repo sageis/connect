@@ -1,14 +1,25 @@
 <h1>Analyze Results </h1>
+<%= @quiz_results.speaking %>
+<%= @quiz_results.persuading %>
+<%= @quiz_results.writing %>
+<%=@quiz_results.taking_initiative%>
+<%=@quiz_results.analyzing%>
+<%=@quiz_results.creating%>
 
-<%= @sage.first_name %>
-<% if (@quiz_results == nil) %><br/>
-	<%= "No quiz results" %>
-<% else %>
-	<%= @quiz_results.build %>
+<h2>Hello</h2>
+<%= @real_results.writing %>
+
+<h2>Goodbye</h2>
+<% for profession in @all_professions %>
+	<%= "hello" %>
+	<%= profession.title %>
+	<%result = Quiz.find_by_id(profession.quiz_id)%>
+	<%= result.writing %>
 <% end %>
 
-<% for profession in @all_professions %>
+<% for result in @ranked_list %>
 	<br/>
-	<%= profession.title %>
+	<%= result.value %>
+	<%= result.profession.title %>
 
 <% end %>

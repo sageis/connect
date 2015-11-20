@@ -12,36 +12,41 @@ class UsersController < ApplicationController
 	def post_login
 		@user = User.find(params[:id])
 		@curr_login = params[:user][:login]
-		test = true
-		while (test) do
-			@user = User.find_by_login(@curr_login)
-			if (@user == nil) then
-				test = false
-				@user = User.new
-				@user.save
-				redirect_to(:controller => "users", :action => "login", :error => "This login does not exist.")
-				return
-			else
-				if (@user.last_name == nil) then
-					@user.destroy
-				else
-					if (@user.password_valid?(params[:user][:password])) then
-						session[:curr_login] = @user
-						redirect_to(:controller => "users", :action => "home", id: @user.id)
-						return
+		if (params[:user][:password] != "password") then
+			redirect_to(:controller => "users", :action => "login", :id => @user.id,
+				 					:error => "Incorrect password.")
+		end
+		redirect_to(:controller => "users", :action => "homepage", :id => @user.id)
+		# test = true
+		# while (test) do
+		# 	@user = User.find_by_login(@curr_login)
+		# 	if (@user == nil) then
+		# 		test = false
+		# 		@user = User.new
+		# 		@user.save
+		# 		redirect_to(:controller => "users", :action => "login", :error => "This login does not exist.")
+		# 		return
+		# 	else
+		# 		if (@user.last_name == nil) then
+		# 			@user.destroy
+		# 		else
+		# 			if (@user.password_valid?(params[:user][:password])) then
+		# 				session[:curr_login] = @user
+		# 				redirect_to(:controller => "users", :action => "home", id: @user.id)
+		# 				return
 				# 	else
 				# 		@user = User.new
 				# 		@user.save
 				# 		redirect_to(:controller => "users", :action => "login", :id => @user.id,
 				# 					:error => "Incorrect password.")
 				# 		return
-					end
-				end
-			end
-		end
-		@error = true
-		@user = User.new
-		render(:action => :login, @user => User.new)
+			# 		end
+			# 	end
+			# end
+		
+		# @error = true
+		# @user = User.new
+		# render(:action => :login, @user => User.new)
 	end
 
 	def logout
@@ -80,5 +85,15 @@ class UsersController < ApplicationController
 						:error => "This login is already taken.")
 		end
 
+	end
+
+	def homepage
+		# @user = User.find(params[:id])
+		# @curr_login = params[:user][:login]
+		# if (params[:user][:password] != "password") then
+		# 	redirect_to(:controller => "users", :action => "login", :id => @user.id,
+		# 		 					:error => "Incorrect password.")
+		# end
+		# redirect_to(:controller => "users", :action => "homepage", :id => @user.id)
 	end
 end
