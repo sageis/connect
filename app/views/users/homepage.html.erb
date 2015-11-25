@@ -15,78 +15,7 @@
     */
 
 
-    #home_icon {
-      background-color: #0099FF;
-      border-color: #0099FF;
-      border-bottom-width: 5px;
-      border-bottom-color: #66ccff;
-    }
-
-    #interests_icon {
-      background-color: #0099FF;
-      border-color: #0099FF;
-      border-bottom-width: 5px;
-      border-bottom-color: #66ccff;
-    }
-
-    #search_icon {
-      background-color: #0099FF;
-      border-color: #0099FF;
-      border-bottom-width: 5px;
-      border-bottom-color: #66ccff;
-    }
-
-    #logout_icon {
-      background-color: #0099FF;
-      border-color: #0099FF;
-      border-bottom-width: 5px;
-      border-bottom-color: #66ccff;
-    }
-
-    h1 {
-      font-family: 'Open Sans';
-      font-size: 25px;
-      text-transform: uppercase;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 26.4px;
-      color: #808080;
-    }
-
-    h2 {
-      font-family: 'Open Sans';
-      font-size: 20px;
-      text-transform: uppercase;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 26.4px;
-      color: #808080;
-    }
-
-    h3 {
-      font-family: 'Open Sans';
-      font-size: 20px;
-      text-transform: lowercase;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 26.4px;
-      text-align: center;
-      color: #808080;
-    }
-
-    p {
-      font-family: 'Open Sans';
-      font-size: 16px;
-      text-transform: lowercase;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 26.4px;
-      color: #808080;    
-    }
-
-    img {
-      border: 2px solid gray;
-    }
+    
 
   </style>
 
@@ -106,14 +35,17 @@ $(document).ready(function(){
 
 <!-- Homepage -->
 <div data-role="page">
-
+  <!-- figure out whose page it is -->
+  <% person = User.find_by_id(session[:user_id]) %>
+  <% if (person == nil) then %>
+  <%= link_to("Log in to view this page", controller: "users", action: "login") %>
     <!--Navigation Bar-->
   <div data-role="navbar">
     <ul>
-      <li><a href="homepage.html" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
+      <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
       <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
-      <li><a href="search.html" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
-      <li><a href="index.html" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
+      <li><a href="/programs/search" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
+      <li><a href="/users/logout" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
     </ul>
   </div>
 
@@ -123,10 +55,12 @@ $(document).ready(function(){
   <div role="main" class="ui-content">
     <div class="ui-grid-a">
       <div class="ui-block-a">
-        <%= image_tag("sage.png", size: "150x150") %>
+        <%= image_tag(person.photo_filename, size: "150x150") %>
       </div>
       <div class="ui-block-b">
-        <h1> Sage Isabella </h1>
+        <h1> 
+          <%= person.first_name + " " + person.last_name %>
+        </h1>
         <!--<h2> Description/Position </h2>-->
       </div>
     </div><!-- /grid-a -->
@@ -135,7 +69,6 @@ $(document).ready(function(){
   <div class="ui-grid-solo">
     <h1><center>Updates</center></h1>
   </div>
-
 </div>
 
   

@@ -10,10 +10,7 @@ class ProfessionsController < ApplicationController
 	end
 
 	def create 
-		# raise params.inspect
 		@new_quiz = Quiz.find_by_id(params[:id])
-		#@new_quiz.writing = params[:writing][:writing]
-		#@new_quiz.writing = params[:writing]
 		if (@new_quiz.save) then
 			redirect_to(:controller => "professions", :action => "index")
 		else 
@@ -25,6 +22,7 @@ class ProfessionsController < ApplicationController
 	def results
 		index = 0
 		for result in @@ranked_list
+			#assign variables @first thru @fifth to the corresponding career from rankedlist
 			if (index == 0)
 				@first = Profession.find_by_id(result.profession.id)
 			elsif (index == 1)
@@ -81,11 +79,8 @@ class ProfessionsController < ApplicationController
 		index = 0
 		@real_results = Quiz.find_by_id(params[:id])
 		for profession in @all_professions 
-
 			result = Quiz.find_by_id(profession.quiz_id)
-			# if (result == nil) then
-			# 	raise params.inspect
-			# end
+
 			value = 0
 			value += (result.writing * @real_results.writing)
 			value += (result.speaking * @real_results.speaking)

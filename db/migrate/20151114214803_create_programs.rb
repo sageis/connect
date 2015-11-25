@@ -1,7 +1,7 @@
 class CreatePrograms < ActiveRecord::Migration
 	def change
 		create_table :programs do |t|
-			t.string :created_by
+			t.string :creator_id
 			t.datetime :date_time
 			t.datetime :due_date
 			t.string :description

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115224717) do
+ActiveRecord::Schema.define(version: 20151123091302) do
 
   create_table "professions", force: :cascade do |t|
     t.text     "description"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20151115224717) do
   end
 
   create_table "programs", force: :cascade do |t|
-    t.string   "created_by"
+    t.string   "creator_id"
     t.datetime "date_time"
     t.datetime "due_date"
     t.string   "description"
@@ -84,8 +84,9 @@ ActiveRecord::Schema.define(version: 20151115224717) do
     t.string   "last_name"
     t.string   "login"
     t.integer  "quiz_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "photo_filename"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end
