@@ -44,6 +44,8 @@ class ProfessionsController < ApplicationController
 		# raise params.inspect
 
 		@quiz_results = Quiz.find_by_id(params[:id])
+		@curr_user = User.find_by_id(session[:user_id])
+		@curr_user.quiz_id = @quiz_results.id
 		if (params[:speaking] == "2.0") then
 			@quiz_results.speaking = -1.0
 		else 

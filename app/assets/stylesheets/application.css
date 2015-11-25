@@ -46,7 +46,7 @@
 
 
 
-#home_icon {
+	#home_icon {
       background-color: #0099FF;
       border-color: #0099FF;
       border-bottom-width: 5px;
@@ -117,4 +117,51 @@
 
     img {
       border: 2px solid gray;
+    }
+
+
+
+     #quizNo {
+      background-color: #32A5E9;
+      border-color: #32A5E9;
+      color: white;
+      font-family: 'Open Sans';
+      text-shadow: none;
+    }
+
+    #quizUnsure {
+      background-color: #32A5E9;
+      border-color: #32A5E9;
+      color: white;
+      font-family: 'Open Sans';
+      text-shadow: none;
+    }
+
+    #quizYes {
+      background-color: #32A5E9;
+      border-color: #32A5E9;
+      color: white;
+      font-family: 'Open Sans';
+      text-shadow: none;
+    }
+
+    h1 {
+      font-family: 'Open Sans';
+      font-size: 30px;
+      text-transform: uppercase;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 26.4px;
+      color: #808080;
+    }
+
+    h2 {
+      font-family: 'Open Sans';
+      font-size: 20px;
+      text-transform: lowercase;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 26.4px;
+      text-align: center;
+      color: #808080;
     }

@@ -36,9 +36,8 @@ $(document).ready(function(){
 <!-- Homepage -->
 <div data-role="page">
   <!-- figure out whose page it is -->
-  <% person = User.find_by_id(session[:user_id]) %>
-  <% if (person == nil) then %>
-  <%= link_to("Log in to view this page", controller: "users", action: "login") %>
+  
+
     <!--Navigation Bar-->
   <div data-role="navbar">
     <ul>
@@ -51,24 +50,31 @@ $(document).ready(function(){
 
   <br>
   <br>
+  <% person = User.find_by_id(session[:user_id]) %>
+  <% if (person == nil) then %>
+  <center><h1>
+    <%= link_to("Log in to view this page", controller: "users", action: "login") %>
+  </h1></center>
+  <% else %>
 
-  <div role="main" class="ui-content">
-    <div class="ui-grid-a">
-      <div class="ui-block-a">
-        <%= image_tag(person.photo_filename, size: "150x150") %>
-      </div>
-      <div class="ui-block-b">
-        <h1> 
-          <%= person.first_name + " " + person.last_name %>
-        </h1>
-        <!--<h2> Description/Position </h2>-->
-      </div>
-    </div><!-- /grid-a -->
-  </div>
+    <div role="main" class="ui-content">
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <%= image_tag(person.photo_filename, size: "150x150") %>
+        </div>
+        <div class="ui-block-b">
+          <h1> 
+            <%= person.first_name + " " + person.last_name %>
+          </h1>
+          <!--<h2> Description/Position </h2>-->
+        </div>
+      </div><!-- /grid-a -->
+    </div>
 
-  <div class="ui-grid-solo">
-    <h1><center>Updates</center></h1>
-  </div>
+    <div class="ui-grid-solo">
+      <h1><center>Updates</center></h1>
+    </div>
+  <% end %>
 </div>
 
   

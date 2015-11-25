@@ -14,81 +14,6 @@
     */
 
 
-    #home_icon {
-      background-color: #0099FF;
-      border-color: #0099FF;
-      border-bottom-width: 5px;
-      border-bottom-color: #66ccff;
-    }
-
-    #interests_icon {
-      background-color: #0099FF;
-      border-color: #0099FF;
-      border-bottom-width: 5px;
-      border-bottom-color: #66ccff;
-    }
-
-    #search_icon {
-      background-color: #0099FF;
-      border-color: #0099FF;
-      border-bottom-width: 5px;
-      border-bottom-color: #66ccff;
-    }
-
-    #logout_icon {
-      background-color: #0099FF;
-      border-color: #0099FF;
-      border-bottom-width: 5px;
-      border-bottom-color: #66ccff;
-    }
-
-    #quizNo {
-      background-color: #32A5E9;
-      border-color: #32A5E9;
-      color: white;
-      font-family: 'Open Sans';
-      text-shadow: none;
-    }
-
-    #quizUnsure {
-      background-color: #32A5E9;
-      border-color: #32A5E9;
-      color: white;
-      font-family: 'Open Sans';
-      text-shadow: none;
-    }
-
-    #quizYes {
-      background-color: #32A5E9;
-      border-color: #32A5E9;
-      color: white;
-      font-family: 'Open Sans';
-      text-shadow: none;
-    }
-
-    h1 {
-      font-family: 'Open Sans';
-      font-size: 30px;
-      text-transform: uppercase;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 26.4px;
-      color: #808080;
-    }
-
-    h2 {
-      font-family: 'Open Sans';
-      font-size: 20px;
-      text-transform: lowercase;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 26.4px;
-      text-align: center;
-      color: #808080;
-    }
-
-
-
   </style>
 
 
@@ -101,10 +26,10 @@
   <!--Navigation Bar-->
   <div data-role="navbar">
     <ul>
-      <li><a href="homepage.html" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
-      <li><a href="myinterests.html" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
-      <li><a href="search.html" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
-      <li><a href="index.html" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
+      <li><a href="/users/homepage.html" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
+      <li><a href="/professions/myinterests" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
+      <li><a href="/programs/search" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
+      <li><a href="/users/logout" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
     </ul>
   </div>
 
@@ -127,171 +52,180 @@
       13. build-quiz-section
 
   -->
-  <div data-role="content">
-    <h1><center>professions quiz</center></h1>
-      <%= form_for(@new_quiz, :method => :post, :url => {:action => :analyze_results, :id => @new_quiz.id}) do |form| %>
-    
+
+  <% person = User.find_by_id(session[:user_id]) %>
+  <% if (person == nil) then %>
+    <center><h1>
+      <%= link_to("Log in to view this page", controller: "users", action: "login") %>
+    </h1></center>
+  <% else %>
+
+    <div data-role="content">
+      <h1><center>professions quiz</center></h1>
+        <%= form_for(@new_quiz, :method => :post, :url => {:action => :analyze_results, :id => @new_quiz.id}) do |form| %>
       
+        
 
-      <center><h2>Speaking</h2>
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:speaking, "2") %>
-          <%= label_tag(:speaking_2, "No") %>
-          <%= radio_button_tag(:speaking, "0") %>
-          <%= label_tag(:speaking_0, "Unsure") %>
-          <%= radio_button_tag(:speaking, "1") %>
-          <%= label_tag(:speaking_1, "Yes") %>
-        </div>
-      </center>
+        <center><h2>Speaking</h2>
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:speaking, "2") %>
+            <%= label_tag(:speaking_2, "No") %>
+            <%= radio_button_tag(:speaking, "0") %>
+            <%= label_tag(:speaking_0, "Unsure") %>
+            <%= radio_button_tag(:speaking, "1") %>
+            <%= label_tag(:speaking_1, "Yes") %>
+          </div>
+        </center>
 
-      <center><h2>Persuading</h2>
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:persuading, "2") %>
-          <%= label_tag(:persuading_2, "No") %>
-          <%= radio_button_tag(:persuading, "0") %>
-          <%= label_tag(:persuading_0, "Unsure") %>
-          <%= radio_button_tag(:persuading, "1") %>
-          <%= label_tag(:persuading_1, "Yes") %> 
-        </div>
-      </center>
+        <center><h2>Persuading</h2>
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:persuading, "2") %>
+            <%= label_tag(:persuading_2, "No") %>
+            <%= radio_button_tag(:persuading, "0") %>
+            <%= label_tag(:persuading_0, "Unsure") %>
+            <%= radio_button_tag(:persuading, "1") %>
+            <%= label_tag(:persuading_1, "Yes") %> 
+          </div>
+        </center>
 
-      <center><h2>Taking Initiative</h2>
-      
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:taking_initiative, "2") %>
-          <%= label_tag(:taking_initiative_2, "No") %>
-          <%= radio_button_tag(:taking_initiative, "0") %>
-          <%= label_tag(:taking_initiative_0, "Unsure") %>
-          <%= radio_button_tag(:taking_initiative, "1") %>
-          <%= label_tag(:taking_initiative_1, "Yes") %> 
-        </div>
-      </center>
+        <center><h2>Taking Initiative</h2>
+        
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:taking_initiative, "2") %>
+            <%= label_tag(:taking_initiative_2, "No") %>
+            <%= radio_button_tag(:taking_initiative, "0") %>
+            <%= label_tag(:taking_initiative_0, "Unsure") %>
+            <%= radio_button_tag(:taking_initiative, "1") %>
+            <%= label_tag(:taking_initiative_1, "Yes") %> 
+          </div>
+        </center>
 
-      <center><h2>Analyzing</h2>
-      
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:analyzing, "2") %>
-          <%= label_tag(:analyzing_2, "No") %>
-          <%= radio_button_tag(:analyzing, "0") %>
-          <%= label_tag(:analyzing_0, "Unsure") %>
-          <%= radio_button_tag(:analyzing, "1") %>
-          <%= label_tag(:analyzing_1, "Yes") %> 
-        </div>
-      </center>
+        <center><h2>Analyzing</h2>
+        
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:analyzing, "2") %>
+            <%= label_tag(:analyzing_2, "No") %>
+            <%= radio_button_tag(:analyzing, "0") %>
+            <%= label_tag(:analyzing_0, "Unsure") %>
+            <%= radio_button_tag(:analyzing, "1") %>
+            <%= label_tag(:analyzing_1, "Yes") %> 
+          </div>
+        </center>
 
-      <center><h2>Creating</h2>
-      
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:creating, "2") %>
-          <%= label_tag(:creating_2, "No") %>
-          <%= radio_button_tag(:creating, "0") %>
-          <%= label_tag(:creating_0, "Unsure") %>
-          <%= radio_button_tag(:creating, "1") %>
-          <%= label_tag(:creating_1, "Yes") %> 
-        </div>
-      </center>
+        <center><h2>Creating</h2>
+        
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:creating, "2") %>
+            <%= label_tag(:creating_2, "No") %>
+            <%= radio_button_tag(:creating, "0") %>
+            <%= label_tag(:creating_0, "Unsure") %>
+            <%= radio_button_tag(:creating, "1") %>
+            <%= label_tag(:creating_1, "Yes") %> 
+          </div>
+        </center>
 
-      <center><h2>Problem Solving</h2>
-      
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:problem_solving, "2") %>
-          <%= label_tag(:problem_solving_2, "No") %>
-          <%= radio_button_tag(:problem_solving, "0") %>
-          <%= label_tag(:problem_solving_0, "Unsure") %>
-          <%= radio_button_tag(:problem_solving, "1") %>
-          <%= label_tag(:problem_solving_1, "Yes") %> 
-        </div>
-      </center>
+        <center><h2>Problem Solving</h2>
+        
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:problem_solving, "2") %>
+            <%= label_tag(:problem_solving_2, "No") %>
+            <%= radio_button_tag(:problem_solving, "0") %>
+            <%= label_tag(:problem_solving_0, "Unsure") %>
+            <%= radio_button_tag(:problem_solving, "1") %>
+            <%= label_tag(:problem_solving_1, "Yes") %> 
+          </div>
+        </center>
 
-      <center><h2>Helping</h2>
-      
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:helping, "2") %>
-          <%= label_tag(:helping_2, "No") %>
-          <%= radio_button_tag(:helping, "0") %>
-          <%= label_tag(:helping_0, "Unsure") %>
-          <%= radio_button_tag(:helping, "1") %>
-          <%= label_tag(:helping_1, "Yes") %> 
-        </div>
-      </center>
+        <center><h2>Helping</h2>
+        
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:helping, "2") %>
+            <%= label_tag(:helping_2, "No") %>
+            <%= radio_button_tag(:helping, "0") %>
+            <%= label_tag(:helping_0, "Unsure") %>
+            <%= radio_button_tag(:helping, "1") %>
+            <%= label_tag(:helping_1, "Yes") %> 
+          </div>
+        </center>
 
-      <center><h2>Physical Activities</h2>
-      
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:physical_activities, "2") %>
-          <%= label_tag(:physical_activities_2, "No") %>
-          <%= radio_button_tag(:physical_activities, "0") %>
-          <%= label_tag(:physical_activities_0, "Unsure") %>
-          <%= radio_button_tag(:physical_activities, "1") %>
-          <%= label_tag(:physical_activities_1, "Yes") %> 
-        </div>
-      </center>
+        <center><h2>Physical Activities</h2>
+        
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:physical_activities, "2") %>
+            <%= label_tag(:physical_activities_2, "No") %>
+            <%= radio_button_tag(:physical_activities, "0") %>
+            <%= label_tag(:physical_activities_0, "Unsure") %>
+            <%= radio_button_tag(:physical_activities, "1") %>
+            <%= label_tag(:physical_activities_1, "Yes") %> 
+          </div>
+        </center>
 
-      <center><h2>Organizing</h2>
-      
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:organizing, "2") %>
-          <%= label_tag(:organizing_2, "No") %>
-          <%= radio_button_tag(:organizing, "0") %>
-          <%= label_tag(:organizing_0, "Unsure") %>
-          <%= radio_button_tag(:organizing, "1") %>
-          <%= label_tag(:organizing_1, "Yes") %> 
-        </div>
-      </center>
+        <center><h2>Organizing</h2>
+        
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:organizing, "2") %>
+            <%= label_tag(:organizing_2, "No") %>
+            <%= radio_button_tag(:organizing, "0") %>
+            <%= label_tag(:organizing_0, "Unsure") %>
+            <%= radio_button_tag(:organizing, "1") %>
+            <%= label_tag(:organizing_1, "Yes") %> 
+          </div>
+        </center>
 
-      <center><h2>Teamwork</h2>
-      
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:team_work, "2") %>
-          <%= label_tag(:team_work_2, "No") %>
-          <%= radio_button_tag(:team_work, "0") %>
-          <%= label_tag(:team_work_0, "Unsure") %>
-          <%= radio_button_tag(:team_work, "1") %>
-          <%= label_tag(:team_work_1, "Yes") %> 
-        </div>
-      </center>
+        <center><h2>Teamwork</h2>
+        
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:team_work, "2") %>
+            <%= label_tag(:team_work_2, "No") %>
+            <%= radio_button_tag(:team_work, "0") %>
+            <%= label_tag(:team_work_0, "Unsure") %>
+            <%= radio_button_tag(:team_work, "1") %>
+            <%= label_tag(:team_work_1, "Yes") %> 
+          </div>
+        </center>
 
-      <center><h2>Investigating</h2>
-      
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:investigating, "2") %>
-          <%= label_tag(:investigating_2, "No") %>
-          <%= radio_button_tag(:investigating, "0") %>
-          <%= label_tag(:investigating_0, "Unsure") %>
-          <%= radio_button_tag(:investigating, "1") %>
-          <%= label_tag(:investigating_1, "Yes") %> 
-        </div>
-      </center>
+        <center><h2>Investigating</h2>
+        
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:investigating, "2") %>
+            <%= label_tag(:investigating_2, "No") %>
+            <%= radio_button_tag(:investigating, "0") %>
+            <%= label_tag(:investigating_0, "Unsure") %>
+            <%= radio_button_tag(:investigating, "1") %>
+            <%= label_tag(:investigating_1, "Yes") %> 
+          </div>
+        </center>
 
-      <center><h2>Building</h2>
-      
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:build, "2") %>
-          <%= label_tag(:build_2, "No") %>
-          <%= radio_button_tag(:build, "0") %>
-          <%= label_tag(:build_0, "Unsure") %>
-          <%= radio_button_tag(:build, "1") %>
-          <%= label_tag(:build_1, "Yes") %> 
-        </div>
-      </center>
+        <center><h2>Building</h2>
+        
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:build, "2") %>
+            <%= label_tag(:build_2, "No") %>
+            <%= radio_button_tag(:build, "0") %>
+            <%= label_tag(:build_0, "Unsure") %>
+            <%= radio_button_tag(:build, "1") %>
+            <%= label_tag(:build_1, "Yes") %> 
+          </div>
+        </center>
 
-      <center><h2>Writing</h2>
-      
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <%= radio_button_tag(:writing, "2") %>
-          <%= label_tag(:writing_2, "No") %>
-          <%= radio_button_tag(:writing, "0") %>
-          <%= label_tag(:writing_0, "Unsure") %>
-          <%= radio_button_tag(:writing, "1") %>
-          <%= label_tag(:writing_1, "Yes") %>
-          
-        </div>
-      </center>
+        <center><h2>Writing</h2>
+        
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <%= radio_button_tag(:writing, "2") %>
+            <%= label_tag(:writing_2, "No") %>
+            <%= radio_button_tag(:writing, "0") %>
+            <%= label_tag(:writing_0, "Unsure") %>
+            <%= radio_button_tag(:writing, "1") %>
+            <%= label_tag(:writing_1, "Yes") %>
+            
+          </div>
+        </center>
 
-      <br/>
-      <%= form.submit "Submit Answers" %>
-    <% end %>
-  </div>
+        <br/>
+        <%= form.submit "Submit Answers" %>
+      <% end %>
+    </div>
+  <% end %>
 </body>
 </html>
 
