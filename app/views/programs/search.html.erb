@@ -1,0 +1,83 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <%= javascript_include_tag "http://code.jquery.com/jquery-1.11.3.min.js" %>
+  <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+  <style>
+  </style>
+
+</head>
+<body>
+
+<!-- Homepage -->
+<div data-role="page">
+  <!-- figure out whose page it is -->
+  
+
+    <!--Navigation Bar-->
+  <div data-role="navbar">
+    <ul>
+      <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
+      <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
+      <li><a href="/programs/search" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
+      <li><a href="/users/logout" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
+    </ul>
+  </div>
+
+  <br>
+  <br>
+  <% person = User.find_by_id(session[:user_id]) %>
+  <% if (person == nil) then %>
+  <center><h1>
+    <%= link_to("Log in to view this page", controller: "users", action: "login") %>
+  </h1></center>
+  <% else %>
+
+    <%= form_for(@program, :method => :post, :url => {:action => :analyze_filters, :id => @program.id}) do |form| %>
+      <div class="ui-field-contain">
+        <div>
+          <%= form.label(:zipcode, "Zipcode:")%>
+          <%= form.text_field(:zipcode) %>
+        </div>
+            <!-- <input type="text" name="username" id="username" placeholder = "username">  -->
+        <br> 
+        <div>
+          <%= form.label(:price, "Price:")%>
+          <%= form.text_field(:price) %> 
+        </div>    
+
+        <div>
+        <%= form.collection_select(@program, :program_id, Program.all, :id, :zipcode) %>
+        </div>
+            <!-- <input type="password" name="password" id="password" placeholder="password"> -->
+        <br>
+        <br>
+      </div>
+      <!-- <a href="homepage.html" data-role="button" data-mini="true">login</a> -->
+      <div>
+        <%= form.submit "Filter Results" %>
+      </div>
+      <br>
+    <% end %>
+  <% end %>
+</div>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
