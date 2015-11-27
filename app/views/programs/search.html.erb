@@ -31,36 +31,53 @@
   <br>
   <% person = User.find_by_id(session[:user_id]) %>
   <% if (person == nil) then %>
-  <center><h1>
-    <%= link_to("Log in to view this page", controller: "users", action: "login") %>
-  </h1></center>
+    <center><h1>
+      <%= link_to("Log in to view this page", controller: "users", action: "login") %>
+    </h1></center>
   <% else %>
 
     <%= form_for(@program, :method => :post, :url => {:action => :analyze_filters, :id => @program.id}) do |form| %>
       <div class="ui-field-contain">
         <div>
-          <%= form.label(:zipcode, "Zipcode:")%>
-          <%= form.text_field(:zipcode) %>
+          <%= form.label(:title, "Program Name:")%>
+          <%= form.text_field(:title) %>
         </div>
-            <!-- <input type="text" name="username" id="username" placeholder = "username">  -->
-        <br> 
+
+        <br/> 
         <div>
           <%= form.label(:price, "Price:")%>
           <%= form.text_field(:price) %> 
         </div>    
 
         <div>
-        <%= form.collection_select(@program, :program_id, Program.all, :id, :zipcode) %>
+          <%= form.select(:region, @all_regions,{ :prompt => "Please select a region"}) %>
+        
         </div>
-            <!-- <input type="password" name="password" id="password" placeholder="password"> -->
-        <br>
-        <br>
+        <div>
+          <%= form.select(:professions, @user_professions,{ :prompt => "Please select a profession"}) %>
+        </div>
+
+        <div>
+          <%= radio_button_tag(:location_type, "Rural") %>
+          <%= label_tag(:location_type_Rural, "Rural") %>
+          <%= radio_button_tag(:location_type, "Urban") %>
+          <%= label_tag(:location_type_Urban, "Urban") %>
+        </div>
+
+        <div>
+          <%= radio_button_tag(:paid, "yes") %>
+          <%= label_tag(:paid_yes, "Strong preference toward paid") %>
+          <%= radio_button_tag(:paid, "no") %>
+          <%= label_tag(:paid_no, "Unpaid is also acceptable") %>
+        </div>
+            
+        <br/>
+        <br/>
       </div>
-      <!-- <a href="homepage.html" data-role="button" data-mini="true">login</a> -->
       <div>
         <%= form.submit "Filter Results" %>
       </div>
-      <br>
+      <br/>
     <% end %>
   <% end %>
 </div>

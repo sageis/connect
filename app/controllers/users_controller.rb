@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 				return
 			else 
 				session[:user_id] = @user.id
+				@@curr_user = @user.id
 				redirect_to(:controller => "users", :action => "homepage", id: @user.id)
 				return
 			# else
@@ -55,7 +56,9 @@ class UsersController < ApplicationController
 
 	def logout
 		reset_session
+		@@curr_user = nil
 		redirect_to("/users/login")
+		return
 	end
 
 	def create

@@ -16,28 +16,68 @@ class ProfessionsController < ApplicationController
 		else 
 			redirect_to(:controller => "professions", :action => "index")
 		end
+	end
 
+	#add the profession they clicked to their list of professions
+	def add
+		@user = User.find_by_id(session[:user_id])
+		if (@user == nil) then
+			return
+		end
+		profession = Profession.find_by_id(params[:id])
+		if (@user.professions.find_by_id(profession.id) == nil) then
+			@user.professions << profession
+		end
+		redirect_to(:controller => "professions", :action => "index")
 	end
 
 	def results
 		index = 0
+		@user = User.find_by_id(session[:user_id])
 		for result in @@ranked_list
 			#assign variables @first thru @fifth to the corresponding career from rankedlist
 			if (index == 0)
 				@first = Profession.find_by_id(result.profession.id)
+				#make sure this id isn't null
+				if (session[:user_id] != nil) then
+					if (@user.professions.find_by_id(@first.id) == nil) then
+						@user.professions << @first
+					end
+				end
 			elsif (index == 1)
 				@second = Profession.find_by_id(result.profession.id)
+				if (session[:user_id] != nil) then
+					if (@user.professions.find_by_id(@second.id) == nil) then
+						@user.professions << @second
+					end
+				end
 			elsif (index == 2)
 				@third = Profession.find_by_id(result.profession.id)
+				if (session[:user_id] != nil) then
+					if (@user.professions.find_by_id(@third.id) == nil) then
+						@user.professions << @third
+					end
+				end
 			elsif (index == 3) 
 				@fourth = Profession.find_by_id(result.profession.id)
+				if (session[:user_id] != nil) then
+					if (@user.professions.find_by_id(@fourth.id) == nil) then
+						@user.professions << @fourth
+					end
+				end
 			elsif (index == 4) 
 				@fifth = Profession.find_by_id(result.profession.id)
+				if (session[:user_id] != nil) then
+					if (@user.professions.find_by_id(@fifth.id) == nil) then
+						@user.professions << @fifth
+					end
+				end
 			elsif (index == 5) 
 				break
 			end
 		  index += 1
 		end
+		@user_professions = User.find_by_id(session[:user_id]).professions
 	end
 
 	def analyze_results

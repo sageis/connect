@@ -11,16 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123091302) do
+ActiveRecord::Schema.define(version: 20151126234256) do
 
   create_table "professions", force: :cascade do |t|
     t.text     "description"
     t.string   "title"
     t.string   "file_name"
     t.integer  "quiz_id"
+    t.string   "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "professions_programs", id: false, force: :cascade do |t|
+    t.integer "profession_id"
+    t.integer "program_id"
+  end
+
+  add_index "professions_programs", ["profession_id"], name: "index_professions_programs_on_profession_id"
+  add_index "professions_programs", ["program_id"], name: "index_professions_programs_on_program_id"
+
+  create_table "professions_users", id: false, force: :cascade do |t|
+    t.integer "profession_id"
+    t.integer "user_id"
+  end
+
+  add_index "professions_users", ["profession_id"], name: "index_professions_users_on_profession_id"
+  add_index "professions_users", ["user_id"], name: "index_professions_users_on_user_id"
 
   create_table "programs", force: :cascade do |t|
     t.string   "creator_id"
@@ -30,8 +47,11 @@ ActiveRecord::Schema.define(version: 20151123091302) do
     t.string   "photo_file_name"
     t.boolean  "applied"
     t.integer  "price"
+    t.boolean  "paid"
     t.integer  "zipcode"
-    t.string   "state"
+    t.string   "region"
+    t.string   "title"
+    t.string   "location_type"
     t.string   "website_link"
     t.datetime "created_at"
     t.datetime "updated_at"

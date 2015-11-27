@@ -4,8 +4,10 @@ class AddPrograms < ActiveRecord::Migration
   	program1 = Program.new(:creator_id => @creator.id, :due_date => 
   							"2016-01-15 11:59:00", :description => "TXT is a program",
   							:photo_file_name => "txt.jpg", :applied => false, 
-  							:price => 0, :zipcode => 13579, :state => "CA", 
-  							:website_link => "http://exploringtech.org/")
+  							:price => 0, :zipcode => 13579, :region => "CA", 
+  							:website_link => "http://exploringtech.org/",
+  							:title => "Teens Exploring Technology",
+  							:location_type => "Urban", :paid => false, :target_age =>)
     program1.save(:validate => false)
   end
 end
