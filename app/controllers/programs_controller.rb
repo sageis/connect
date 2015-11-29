@@ -36,4 +36,21 @@ class ProgramsController < ApplicationController
 	def select_attempts
 		#<%= form.collection_select(:program, :program_id, @all_programs, :id, @all_regions) %>
 	end
+
+	def results
+		@all_programs = Program.all
+	end
+
+	#save programs to the user's list of programs
+	def save
+		@user = User.find_by_id(session[:user_id])
+		if (@user == nil) then
+			return
+		end
+		program = Program.find_by_id(params[:id])
+		if (@user.programs.find_by_id(program.id) == nil) then
+			@user.programs << program
+		end
+		redirect_to(:controller => "programs", :action => "results")
+	end
 end

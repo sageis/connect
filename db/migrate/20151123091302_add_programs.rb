@@ -7,7 +7,7 @@ class AddPrograms < ActiveRecord::Migration
   							:price => 0, :zipcode => 13579, :region => "CA", 
   							:website_link => "http://exploringtech.org/",
   							:title => "Teens Exploring Technology",
-  							:location_type => "Urban", :paid => false, :target_age =>)
+  							:location_type => "Urban", :paid => false)
     program1.save(:validate => false)
   end
 end

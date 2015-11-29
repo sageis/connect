@@ -1,0 +1,25 @@
+<%= image_tag("#{@program.photo_file_name}", alt: "Program", class: "program")%>
+<br/>
+<br/>
+<% @new_review.errors.full_messages.each do |msg| %>
+	<h1><%= msg %></h1>
+<% end %>
+<% if (session[:user_id] != nil) then %>
+	<%= form_for(@new_review, :method => :post, :url => {:action => :create, :id => @new_review.id, :program_id => @program.id}) do |form| %>
+		<table class="form">
+			<tr class = "login_row">
+				<td>
+					<%= User.find_by_id(session[:user_id]).first_name %>
+					<%= form.label(:new_review, "review:")%>
+					<%= form.text_field(:review) %>
+					<%= form.submit "Post review" %>
+				</td>
+			</tr>
+		<table>
+	<% end %>
+<% else %>
+	<center><h1><%= link_to("LOG IN TO REVIEW THIS PROGRAM", controller: "users", action: "login") %></h1></center>
+<% end %>
+<br/>
+<br/>
+<br/>

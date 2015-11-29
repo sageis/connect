@@ -1,0 +1,25 @@
+<% for program in @all_programs %>
+	<%= program.title %><br/>
+	<%= program.description %><br/>
+	<%= program.paid %><br/>
+	<%= image_tag(program.photo_file_name, size: "200x150") %>
+	<%= link_to("Add Review", controller: "reviews", action: "new", id: program.id) %>
+	<%= link_to("Add to My Programs", controller: "programs", action: "save", id: program.id) %>
+	<table>
+		<% for review in program.reviews %>
+			<tr>
+				<td>
+					<div class="row">
+						<%= review.review %>
+						<div class="review_date">
+						<%= review.date_time.getlocal %>
+						</div>
+						<br/>
+					</div>
+					<br/>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+
+<% end %>
