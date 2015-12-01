@@ -35,18 +35,23 @@ class ProgramsController < ApplicationController
 
 	def analyze_filters
 		@filter = Program.find_by_id(params[:id])
+		#working
+		@filter.region = params[:region_name]
+
+
+		#not working
 		if (params[:price] == nil)
-			raise params.inspect
+			#raise params.inspect
 		end
 		@filter.price = params[:price]
 		#redirect_to(:controller => "programs", :action => "results")
 		if (params[:housed] == false)
-			raise params.inspect
+			#raise params.inspect
 			@filter.housed = false
 		else
 			@filter.housed = true
 		end
-		@filter.region = params[:region]
+
 		if (params[:paid] == false)
 			@filter.paid = false
 		else

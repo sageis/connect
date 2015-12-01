@@ -79,11 +79,11 @@
             </div>    
 
             <div>
-              <%= form.select(:region, @all_regions,{ :prompt => "Please select a region"}) %>
+              <%= form.select(:region, @all_regions,{ :prompt => "Please select a region"}, :name => "region_name") %>
             
             </div>
             <div>
-              <%= form.select(:professions, @user_professions,{ :prompt => "Please select a profession"}) %>
+              <%= form.select(:professions, @user_professions,{ :prompt => "Please select a profession"}, :name => "profession_name") %>
             </div>
 
             <div>

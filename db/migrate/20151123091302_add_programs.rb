@@ -1,5 +1,6 @@
 class AddPrograms < ActiveRecord::Migration
   def up
+    #you can switch up the name used here(options are Sage, Jasmine, Betsy, and Cristian)
   	@creator = User.find_by_first_name("Sage")
   	program1 = Program.new(:creator_id => @creator.id, :due_date => 
   							"2016-01-15 11:59:00", 
