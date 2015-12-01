@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+	$("#add_review").hover(function () {
+		$(this).css("background-color", "#0064BD");
+	    }, function(){
+	    $(this).css("background-color", "#0099FF");
+	});
+
+	$("#add_program").hover(function () {
+		$(this).css("background-color", "#0064BD");
+	    }, function(){
+	    $(this).css("background-color", "#0099FF");
+	});
+});

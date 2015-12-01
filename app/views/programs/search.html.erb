@@ -31,16 +31,15 @@
     <div data-role="main" class="ui-content">
       <h1><center>opportunities</center></h1>
 
-      
-      <div class="ui-grid-a">
-        <div class="ui-block-a" style="width:7%">
-          <a href="#filter_panel" data-role="button" data-mini="true" id ="filter_button" data-inline="true">filter</a>
-        </div>
-        <div class="ui-block-b" style="width:93%">
-          <input type="search" placeholder="begin searching..." data-mini="true" data-clear-btn="true"/> 
-        </div>
-      </div>
 
+        <div  data-theme="a" id="custom-footer" class="ui-grid-a"  data-position="fixed">
+          <div  class="ui-block-a" >
+              <a href="#filter_panel" data-role="button" data-mini="true" id ="filter_button" data-inline="true">filter</a>
+          </div>
+          <div  class="ui-block-b" >
+            <input type="search" placeholder="begin searching..." data-mini="true" data-clear-btn="true"/>
+          </div>
+        </div>
 
 
 
@@ -68,7 +67,6 @@
     <!--Panel: Contains the filter options through a panel that pushes out -->
     <div data-role="panel" id="filter_panel"> 
         <h1><center>Options</center></h1>
-        <%= @program.id %>
 
         <%= form_for(@program, :method => :post, :url => {:action => :analyze_filters, :id => @program.id}) do |form| %>
           <div class="ui-field-contain">
@@ -77,7 +75,7 @@
             </div>
 
             <div>
-              <%= form.number_field :price, within: 0..5000, step: 1.0, :placeholder => "price..." %> 
+              <%= form.text_field :price, :placeholder => "price..." %> 
             </div>    
 
             <div>

@@ -68,7 +68,7 @@
 
     #intro_title {
       color:white;
-      font-size: 40px;
+      font-size: 25px;
     }
 
     h1 {
@@ -92,7 +92,7 @@
 
     h3 {
       font-family: 'Open Sans';
-      font-size: 20px;
+      font-size: 15px;
       text-transform: lowercase;
       font-style: normal;
       font-weight: 500;
@@ -115,6 +115,13 @@
       border: 2px solid gray;
     }
 
+    #custom-footer .ui-block-a {
+        width: 20% !important;
+    }
+
+    #custom-footer .ui-block-b {
+        width: 80% !important;    
+    }
 
 
      #quizNo {
@@ -142,21 +149,25 @@
     }
 
     #filter_panel {
-      background-color: #d0e5f0;
+      background-color: #E4E4E4;
     }
 
 
 
+    #add_review {
+      color: white;
+      background-color: #0099FF;
+      text-shadow: none;
+      font-family: 'Open Sans';
+      width: 100px;
+      border-radius: 5px;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    #add_program {
+      color: white;
+      background-color: #0099FF;
+      text-shadow: none;
+      font-family: 'Open Sans';
+      width: 200px;
+      border-radius: 5px;
+    }

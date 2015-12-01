@@ -24,22 +24,15 @@
 		<h1><center><%= program.title %></center></h1>
 	</div>
 
-	<div class="ui-grid-a">
 
-	    <div class="ui-block-a">
-	    	<center><%= image_tag(program.photo_file_name, size: "200x150") %><center>
-	    </div>
+	    
+	<center><%= image_tag(program.photo_file_name, size: "200x150") %><center>
+	    
 
-	    <div class="ui-block-b">
-	    	<h2><%= program.description %></h2>
-	    	<%= link_to "Add Review", {controller: "reviews", action: "new", id: program.id}, :class => "ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" %>
-	    	<%= link_to "Add to My Programs", {controller: "programs", action: "save", id: program.id}, :class => "ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" %><!-- 
-	    	<%= link_to("Add Review", controller: "reviews", action: "new", id: program.id) %>
-	    	<br>
-			<%= link_to("Add to My Programs", controller: "programs", action: "save", id: program.id) %> -->
-	    </div>
-
-	</div>
+	<h2><%= program.description %></h2>
+	<%= link_to "add review", {controller: "reviews", action: "new", id: program.id}, :class => "ui-btn", :id => "add_review"%>
+	<%= link_to "add to my programs", {controller: "programs", action: "save", id: program.id}, :class => "ui-btn", :id => "add_program" %>
+	    
 	
 
 		
