@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20151129075811) do
     t.integer  "price"
     t.boolean  "housed"
     t.boolean  "paid"
-    t.integer  "zipcode"
     t.string   "region"
     t.string   "title"
     t.string   "website_link"

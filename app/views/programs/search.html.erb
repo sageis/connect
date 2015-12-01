@@ -68,6 +68,7 @@
     <!--Panel: Contains the filter options through a panel that pushes out -->
     <div data-role="panel" id="filter_panel"> 
         <h1><center>Options</center></h1>
+        <%= @program.id %>
 
         <%= form_for(@program, :method => :post, :url => {:action => :analyze_filters, :id => @program.id}) do |form| %>
           <div class="ui-field-contain">
@@ -76,7 +77,7 @@
             </div>
 
             <div>
-              <%= form.text_field :price, :placeholder => "price..." %> 
+              <%= form.number_field :price, within: 0..5000, step: 1.0, :placeholder => "price..." %> 
             </div>    
 
             <div>

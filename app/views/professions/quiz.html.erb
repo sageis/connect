@@ -1,6 +1,5 @@
 <html>
 <head>
-  
   <style>
 
     /* Blue color is: #0099FF;
@@ -22,8 +21,8 @@
   <!--Navigation Bar-->
   <div data-role="navbar">
     <ul>
-      <li><a href="/users/homepage.html" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
-      <li><a href="/professions/myinterests" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
+      <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
+      <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
       <li><a href="/programs/search" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
       <li><a href="/users/logout" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
     </ul>
@@ -58,6 +57,7 @@
 
     <div data-role="content">
       <h1><center>professions quiz</center></h1>
+      <h3><center>vwould you want your future career to involve the following categories?</center></h3>
         <%= form_for(@new_quiz, :method => :post, :url => {:action => :analyze_results, :id => @new_quiz.id}) do |form| %>
       
         

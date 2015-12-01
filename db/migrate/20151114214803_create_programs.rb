@@ -10,7 +10,6 @@ class CreatePrograms < ActiveRecord::Migration
         	t.integer :price
         	t.boolean :housed
         	t.boolean :paid
-       		t.integer :zipcode
         	t.string :region
         	t.string :title
         	t.string :website_link

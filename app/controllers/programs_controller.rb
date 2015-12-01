@@ -6,13 +6,16 @@ class ProgramsController < ApplicationController
 	def search
 		@all_programs = Program.all
 		@program = Program.new
+		@program.save
 		@all_regions = Array.new
 		#build region dropdown menu
 		for program in Program.all
-			mini_array = Array.new
-			mini_array << program.region
-			mini_array << program.region
-			@all_regions << mini_array
+			if (program.region != nil)
+				mini_array = Array.new
+				mini_array << program.region
+				mini_array << program.region
+				@all_regions << mini_array
+			end
 		end
 
 		#build profession dropdown menu
@@ -31,6 +34,27 @@ class ProgramsController < ApplicationController
 	end
 
 	def analyze_filters
+		@filter = Program.find_by_id(params[:id])
+		if (params[:price] == nil)
+			raise params.inspect
+		end
+		@filter.price = params[:price]
+		#redirect_to(:controller => "programs", :action => "results")
+		if (params[:housed] == false)
+			raise params.inspect
+			@filter.housed = false
+		else
+			@filter.housed = true
+		end
+		@filter.region = params[:region]
+		if (params[:paid] == false)
+			@filter.paid = false
+		else
+			@filter.paid = true
+		end
+		# if (params[:professions] == nil)
+		# 	@filter.professions
+
 	end
 
 	def select_attempts

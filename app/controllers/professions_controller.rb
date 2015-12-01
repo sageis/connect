@@ -98,20 +98,85 @@ class ProfessionsController < ApplicationController
 			@quiz_results.persuading = params[:persuading]
 		end
 
+		if (params[:writing] == "2.0") then
+			@quiz_results.writing = -1.0
+		else 
+			@quiz_results.writing = params[:writing]
+		end
+
+		if (params[:taking_initiative] == "2.0") then
+			@quiz_results.taking_initiative = -1.0
+		else 
+			@quiz_results.taking_initiative = params[:taking_initiative]
+		end
+
+		if (params[:physical_activities] == "2.0") then
+			@quiz_results.physical_activities = -1.0
+		else 
+			@quiz_results.physical_activities = params[:physical_activities]
+		end
+
+		if (params[:build] == "2.0") then
+			@quiz_results.build = -1.0
+		else 
+			@quiz_results.build = params[:build]
+		end
+
+		if (params[:helping] == "2.0") then
+			@quiz_results.helping = -1.0
+		else 
+			@quiz_results.helping = params[:helping]
+		end
+
+		if (params[:organizing] == "2.0") then
+			@quiz_results.organizing = -1.0
+		else 
+			@quiz_results.organizing = params[:organizing]
+		end
+
+		if (params[:analyzing] == "2.0") then
+			@quiz_results.analyzing = -1.0
+		else 
+			@quiz_results.analyzing = params[:analyzing]
+		end
+
+		if (params[:creating] == "2.0") then
+			@quiz_results.creating = -1.0
+		else 
+			@quiz_results.creating = params[:creating]
+		end
+
+		if (params[:investigating] == "2.0") then
+			@quiz_results.investigating = -1.0
+		else 
+			@quiz_results.investigating = params[:investigating]
+		end
+
+		if (params[:problem_solving] == "2.0") then
+			@quiz_results.problem_solving = -1.0
+		else 
+			@quiz_results.problem_solving = params[:problem_solving]
+		end
+
+		if (params[:team_work] == "2.0") then
+			@quiz_results.team_work = -1.0
+		else 
+			@quiz_results.team_work = params[:team_work]
+		end
 		
 		
 		#@quiz_results.persuading = params[:persuading]
-		@quiz_results.writing = params[:writing]
-		@quiz_results.taking_initiative = params[:taking_initiative]
-		@quiz_results.physical_activities = params[:physical_activities]
-		@quiz_results.build = params[:build]
-		@quiz_results.helping = params[:helping]
-		@quiz_results.organizing = params[:organizing]
-		@quiz_results.analyzing = params[:analyzing]
-		@quiz_results.creating = params[:creating]
-		@quiz_results.investigating = params[:investigating]
-		@quiz_results.problem_solving = params[:problem_solving]
-		@quiz_results.team_work = params[:team_work]
+		#@quiz_results.writing = params[:writing]
+		#@quiz_results.taking_initiative = params[:taking_initiative]
+		#@quiz_results.physical_activities = params[:physical_activities]
+		#@quiz_results.build = params[:build]
+		#@quiz_results.helping = params[:helping]
+		#@quiz_results.organizing = params[:organizing]
+		#@quiz_results.analyzing = params[:analyzing]
+		#@quiz_results.creating = params[:creating]
+		#@quiz_results.investigating = params[:investigating]
+		#@quiz_results.problem_solving = params[:problem_solving]
+		#@quiz_results.team_work = params[:team_work]
 		@quiz_results.save
 
 		Struct.new("RankedJob", :value, :profession)
