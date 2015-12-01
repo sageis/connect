@@ -100,7 +100,7 @@ class ProfessionsController < ApplicationController
 
 		
 		
-		# @quiz_results.persuading = params[:persuading]
+		#@quiz_results.persuading = params[:persuading]
 		@quiz_results.writing = params[:writing]
 		@quiz_results.taking_initiative = params[:taking_initiative]
 		@quiz_results.physical_activities = params[:physical_activities]

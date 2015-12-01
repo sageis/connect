@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	skip_before_action :verify_authenticity_token
 	def home	
 		@all_users = User.all
 	end
@@ -61,35 +62,56 @@ class UsersController < ApplicationController
 		return
 	end
 
+	def new
+		reset_session
+		@user = User.new
+		#@photo = Photo.new
+		#@photo.save
+		#@user.salt = rand()
+		@user.save
+	end
+
 	def create
 		@user = User.find(params[:id])
 		@user.first_name = params[:user][:first_name]
 		@user.last_name = params[:user][:last_name]
+		
+		# uploaded_io = params[:user][:photo_filename]
+
+  # 		File.open(Rails.root.join('app', 'assets', 'images', 
+  # 				  uploaded_io.original_filename), 'wb') do |file|
+  #   		file.write(uploaded_io.read())
+  # 		end
+  		@user.photo_filename = "nothing"
 		if (params[:user][:password] != params[:user][:password1]) then
 			@user = User.new
-			@user.salt = rand()
 			@user.save
 			redirect_to(:controller => "users", :action => "new", 
 						:error => "Your passwords do not match.")
 			return
 		end
 		@user.password=(params[:user][:password])
+		if (params[:user][:login] == nil) then
+			raise params.inspect
+		end
+		@login = params[:user][:login]
+	
 		#check if that login is already taken
 		if (User.find_by_login(params[:user][:login]) == nil) then
 			@user.login = params[:user][:login]
 			if (@user.save) then
-				redirect_to(:controller => "photos", :action => "index", :id => @user.id)
-				session[:curr_login] = @user
+				session[:user_id] = @user
+				redirect_to(:controller => "users", :action => "homepage")
 				return
 			else
-				render(:action => :new)
+				raise params.inspect
+				return
 			end
-		else
-			@user = User.new
-			@user.salt = rand()
-			@user.save
-			redirect_to(:controller => "users", :action => "new", 
-						:error => "This login is already taken.")
+		# else
+		# 	@user = User.new
+		# 	@user.save
+		# 	redirect_to(:controller => "users", :action => "new", 
+		# 				:error => "This login is already taken.")
 		end
 
 	end

@@ -8,11 +8,11 @@ class CreatePrograms < ActiveRecord::Migration
 			t.string :photo_file_name
 			t.boolean :applied
         	t.integer :price
+        	t.boolean :housed
         	t.boolean :paid
        		t.integer :zipcode
         	t.string :region
         	t.string :title
-        	t.string :location_type
         	t.string :website_link
 			t.timestamps
 		end
