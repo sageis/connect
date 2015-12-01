@@ -5,39 +5,63 @@
 </head>
 <body>
 
-  <!-- Login Page -->
-  <div data-role="page">
-    <div data-role="header" id = "top-header">
-      <h1 id = "intro_title">connect</h1>
-    </div>
+<!-- Login Page -->
+<div data-role="page">
+  <div data-role="header" id = "top-header">
+    <h1 id = "intro_title">connect</h1>
+  </div>
 
-    <center><h4> <%= params[:error] %> </h4></center>
+  <center><h4> <%= params[:error] %> </h4></center>
 
-    <div data-role="main" class="ui-content">
-      <!-- <form method="post" action="demoform.asp"> -->
-      <%= form_for(@user, :method => :post, :url => {:action => :post_login, :id => @user.id}) do |form| %>
-        <div class="ui-field-contain">
-          <div>
-            <%= form.text_field(:login, :placeholder => "Username") %>
-          </div>
-          <br> 
-          <div>
-            <%= form.password_field(:password, :placeholder => "Password") %> 
-          </div>    
-          <br>
-          <br>
-        </div>
+  <div data-role="main" class="ui-content">
+    <!-- <form method="post" action="demoform.asp"> -->
+    <%= form_for(@user, :method => :post, :url => {:action => :post_login, :id => @user.id}) do |form| %>
+      <div class="ui-field-contain">
         <div>
-          <%= form.submit "Log In" %>
+          <%= form.text_field :login, :placeholder => "username" %>
         </div>
+            <!-- <input type="text" name="username" id="username" placeholder = "username">  -->
+        <br> 
+        <div>
+          <%= form.password_field :password, :placeholder => "password" %> 
+        </div>    
+            <!-- <input type="password" name="password" id="password" placeholder="password"> -->
         <br>
-        <div style="text-align: center">
-          <a href="/users/new" data-role="button" data-inline="true" data-mini="true">new account</a>
-        </div>
-      <% end %>
-    </div>
-  </div> 
-  <%= yield %>
+        <br>
+      </div>
+      <!-- <a href="homepage.html" data-role="button" data-mini="true">login</a> -->
+      <div>
+        <%= form.submit "Log In" %>
+      </div>
+      <br>
+      <div style="text-align: center">
+        <a href="new_account.html" data-role="button" data-inline="true" data-mini="true">new account</a>
+      </div>
+    <% end %>
+    <!-- </form> -->
+  </div>
+</div> 
+<%= yield %>
+
+
+  <!-- <div data-role="main" class="ui-content">
+    <form method="post" action="demoform.asp">
+      <div class="ui-field-contain">
+        <input type="text" name="username" id="username" placeholder = "username"> 
+        <br>      
+        <input type="password" name="password" id="password" placeholder="password">
+        <br>
+        <br>
+      </div>
+      <a href="homepage.html" data-role="button" data-mini="true" id = "login-button">login</a>
+      <br>
+      <div style="text-align: center">
+        <a href="new_account.html" data-role="button" data-inline="true" data-mini="true" id = "new-account-button">new account</a>
+      </div>
+    </form>
+  </div>
+</div>  -->
+
 </body>
 </html>
 

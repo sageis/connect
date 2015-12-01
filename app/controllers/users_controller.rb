@@ -76,12 +76,12 @@ class UsersController < ApplicationController
 		@user.first_name = params[:user][:first_name]
 		@user.last_name = params[:user][:last_name]
 		
-		# uploaded_io = params[:user][:photo_filename]
+		uploaded_io = params[:user][:photo_filename]
 
-  # 		File.open(Rails.root.join('app', 'assets', 'images', 
-  # 				  uploaded_io.original_filename), 'wb') do |file|
-  #   		file.write(uploaded_io.read())
-  # 		end
+  		File.open(Rails.root.join('app', 'assets', 'images', 
+  				  uploaded_io.original_filename), 'wb') do |file|
+    		file.write(uploaded_io.read)
+  		end
   		@user.photo_filename = "nothing"
 		if (params[:user][:password] != params[:user][:password1]) then
 			@user = User.new

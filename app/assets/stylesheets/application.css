@@ -22,14 +22,6 @@
       border-bottom-color: #66ccff;
     }
 
-    h1 {
-      font-family: 'Open Sans';
-      text-transform: uppercase;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 26.4px;
-    }
-
     #login-button {
       color: white;
       background-color: #0099FF;
@@ -46,7 +38,7 @@
 
 
 
-	#home_icon {
+  #home_icon {
       background-color: #0099FF;
       border-color: #0099FF;
       border-bottom-width: 5px;
@@ -74,9 +66,13 @@
       border-bottom-color: #66ccff;
     }
 
+    #intro_title {
+      color:white;
+      font-size: 40px;
+    }
+
     h1 {
       font-family: 'Open Sans';
-      font-size: 25px;
       text-transform: uppercase;
       font-style: normal;
       font-weight: 500;
@@ -145,23 +141,22 @@
       text-shadow: none;
     }
 
-    h1 {
-      font-family: 'Open Sans';
-      font-size: 30px;
-      text-transform: uppercase;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 26.4px;
-      color: #808080;
+    #filter_panel {
+      background-color: #d0e5f0;
     }
 
-    h2 {
-      font-family: 'Open Sans';
-      font-size: 20px;
-      text-transform: lowercase;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 26.4px;
-      text-align: center;
-      color: #808080;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

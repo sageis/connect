@@ -1,13 +1,5 @@
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-  <%= javascript_include_tag "http://code.jquery.com/jquery-1.11.3.min.js" %>
-  <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-  <style>
-  </style>
 
 </head>
 <body>
@@ -15,20 +7,7 @@
 <!-- Homepage -->
 <div data-role="page">
   <!-- figure out whose page it is -->
-  
 
-    <!--Navigation Bar-->
-  <div data-role="navbar">
-    <ul>
-      <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
-      <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
-      <li><a href="/programs/search" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
-      <li><a href="/users/logout" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
-    </ul>
-  </div>
-
-  <br>
-  <br>
   <% person = User.find_by_id(session[:user_id]) %>
   <% if (person == nil) then %>
     <center><h1>
@@ -36,50 +15,102 @@
     </h1></center>
   <% else %>
 
-    <%= form_for(@program, :method => :post, :url => {:action => :analyze_filters, :id => @program.id}) do |form| %>
-      <div class="ui-field-contain">
-        <div>
-          <%= form.label(:title, "Program Name:")%>
-          <%= form.text_field(:title) %>
-        </div>
+    <!--Header: Contains the navigation bar -->
+    <div data-role="header">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="homepage.html" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
+          <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
+          <li><a href="search.html" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
+          <li><a href="index.html" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
+        </ul>
+      </div>
+    </div>
 
-        <br/> 
-        <div>
-          <%= form.label(:price, "Price:")%>
-          <%= form.text_field(:price) %> 
-        </div>    
+    <!--Main Page: Contains the main content on the page -->
+    <div data-role="main" class="ui-content">
+      <h1><center>opportunities</center></h1>
 
-        <div>
-          <%= form.select(:region, @all_regions,{ :prompt => "Please select a region"}) %>
-        
+      
+      <div class="ui-grid-a">
+        <div class="ui-block-a" style="width:7%">
+          <a href="#filter_panel" data-role="button" data-mini="true" id ="filter_button" data-inline="true">filter</a>
         </div>
-        <div>
-          <%= form.select(:professions, @user_professions,{ :prompt => "Please select a profession"}) %>
+        <div class="ui-block-b" style="width:93%">
+          <input type="search" placeholder="begin searching..." data-mini="true" data-clear-btn="true"/> 
         </div>
+      </div>
 
-        <div>
-          <%= radio_button_tag(:location_type, "Rural") %>
-          <%= label_tag(:location_type_Rural, "Rural") %>
-          <%= radio_button_tag(:location_type, "Urban") %>
-          <%= label_tag(:location_type_Urban, "Urban") %>
-        </div>
 
-        <div>
-          <%= radio_button_tag(:paid, "yes") %>
-          <%= label_tag(:paid_yes, "Strong preference toward paid") %>
-          <%= radio_button_tag(:paid, "no") %>
-          <%= label_tag(:paid_no, "Unpaid is also acceptable") %>
-        </div>
+
+
+      <h2><center>List of Results</center></h2>
+      
+
+        <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">Profession A</li>
+            <li><a href="">
+                <h2>Name of Opportunity</h2>
+                <p>description</p>
+            </a></li>
+            <li><a href="index.html">
+                <h2>Name of Opportunity</h2>
+                <p>description</p>
+            </a></li>
+            <li data-role="list-divider">Profession B</li>
+            <li><a href="">
+                <h2>Name of Opportunity</h2>
+                <p>description</p>
+            </a></li>
+        </ul>
+    </div>     
+
+    <!--Panel: Contains the filter options through a panel that pushes out -->
+    <div data-role="panel" id="filter_panel"> 
+        <h1><center>Options</center></h1>
+
+        <%= form_for(@program, :method => :post, :url => {:action => :analyze_filters, :id => @program.id}) do |form| %>
+          <div class="ui-field-contain">
+            <div>
+              <%= form.text_field :title, :placeholder => "program name..." %>
+            </div>
+
+            <div>
+              <%= form.text_field :price, :placeholder => "price..." %> 
+            </div>    
+
+            <div>
+              <%= form.select(:region, @all_regions,{ :prompt => "Please select a region"}) %>
             
-        <br/>
-        <br/>
-      </div>
-      <div>
-        <%= form.submit "Filter Results" %>
-      </div>
-      <br/>
-    <% end %>
-  <% end %>
+            </div>
+            <div>
+              <%= form.select(:professions, @user_professions,{ :prompt => "Please select a profession"}) %>
+            </div>
+
+            <div>
+              <%= radio_button_tag(:housing_type, "Housed") %>
+              <%= label_tag(:housing_type_Housed, "Housed") %>
+              <%= radio_button_tag(:housing_type, "Unhoused") %>
+              <%= label_tag(:housing_type_Unhoused, "Unhoused") %>
+            </div>
+
+            <div>
+              <%= radio_button_tag(:paid, "yes") %>
+              <%= label_tag(:paid_yes, "Strong preference toward paid") %>
+              <%= radio_button_tag(:paid, "no") %>
+              <%= label_tag(:paid_no, "Unpaid is also acceptable") %>
+            </div>
+                
+            <div>
+              <%= form.submit "Filter Results" %>
+            </div>  
+
+          </div>
+      <% end %> <!-- ends the form -->
+    </div>
+
+    
+  <% end %> <!-- ends the if/else statement -->
 </div>
 
   

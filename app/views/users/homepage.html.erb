@@ -1,6 +1,11 @@
 <html>
 <head>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <%= javascript_include_tag "http://code.jquery.com/jquery-1.11.3.min.js" %>
+  <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
   <style>
 
     /* Blue color is: #0099FF;
@@ -55,11 +60,7 @@ $(document).ready(function(){
     <div role="main" class="ui-content">
       <div class="ui-grid-a">
         <div class="ui-block-a">
-          <% if (person.photo_filename == "nothing") then %>
-            <%= image_tag("rando.jpg", size: "150x150") %>
-          <% else %>
-            <%= image_tag(person.photo_filename, size: "150x150") %>
-          <% end %>
+          <center><%= image_tag(person.photo_filename, size: "150x150") %></center>
         </div>
         <div class="ui-block-b">
           <h1> 

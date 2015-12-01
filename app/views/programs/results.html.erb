@@ -1,25 +1,65 @@
-<% for program in @all_programs %>
-	<%= program.title %><br/>
-	<%= program.description %><br/>
-	<%= program.paid %><br/>
-	<%= image_tag(program.photo_file_name, size: "200x150") %>
-	<%= link_to("Add Review", controller: "reviews", action: "new", id: program.id) %>
-	<%= link_to("Add to My Programs", controller: "programs", action: "save", id: program.id) %>
-	<table>
-		<% for review in program.reviews %>
-			<tr>
-				<td>
-					<div class="row">
-						<%= review.review %>
-						<div class="review_date">
-						<%= review.date_time.getlocal %>
+<html>	
+<head>
+
+</head>
+<body>
+
+<div data-role="page">
+
+	<!--Header: Contains the navigation bar -->
+    <div data-role="header">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="homepage.html" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
+          <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
+          <li><a href="search.html" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
+          <li><a href="index.html" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
+        </ul>
+      </div>
+    </div>
+
+	<% for program in @all_programs %>
+
+	<div class="ui-grid-solo">
+		<h1><center><%= program.title %></center></h1>
+	</div>
+
+	<div class="ui-grid-a">
+
+	    <div class="ui-block-a">
+	    	<center><%= image_tag(program.photo_file_name, size: "200x150") %><center>
+	    </div>
+
+	    <div class="ui-block-b">
+	    	<h2><%= program.description %></h2>
+	    	<%= link_to "Add Review", {controller: "reviews", action: "new", id: program.id}, :class => "ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" %>
+	    	<%= link_to "Add to My Programs", {controller: "programs", action: "save", id: program.id}, :class => "ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" %><!-- 
+	    	<%= link_to("Add Review", controller: "reviews", action: "new", id: program.id) %>
+	    	<br>
+			<%= link_to("Add to My Programs", controller: "programs", action: "save", id: program.id) %> -->
+	    </div>
+
+	</div>
+	
+
+		
+		<table>
+			<% for review in program.reviews %>
+				<tr>
+					<td>
+						<div class="row">
+							<%= review.review %>
+							<div class="review_date">
+							<%= review.date_time.getlocal %>
+							</div>
+							<br/>
 						</div>
 						<br/>
-					</div>
-					<br/>
-				</td>
-			</tr>
-		<% end %>
-	</table>
+					</td>
+				</tr>
+			<% end %>
+		</table>
 
-<% end %>
+	<% end %>
+</div>
+</body>
