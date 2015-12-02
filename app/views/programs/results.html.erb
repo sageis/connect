@@ -10,10 +10,10 @@
     <div data-role="header">
       <div data-role="navbar">
         <ul>
-          <li><a href="homepage.html" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
-          <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
-          <li><a href="search.html" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
-          <li><a href="index.html" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
+          <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-nodisc-icon ui-btn-icon-notext" id = "home_icon"> </a></li>
+          <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-nodisc-icon ui-btn-icon-notext" id = "interests_icon"> </a></li>
+          <li><a href="/programs/search" class="ui-btn ui-icon-search ui-nodisc-icon ui-btn-icon-notext" id = "search_icon"> </a></li>
+          <li><a href="/users/logout" class="ui-btn ui-icon-back ui-nodisc-icon ui-btn-icon-notext" id = "logout_icon"> </a></li>
         </ul>
       </div>
     </div>
@@ -26,10 +26,14 @@
 
 
 	    
-	<center><%= image_tag(program.photo_file_name, size: "200x150") %><center>
+	<center><%= image_tag(program.photo_file_name, class: "program_image") %><center>
 	    
+	<div class = "program_description">
+		<p><%= program.description %></p>
+	</div>
 
-	<h2><%= program.description %></h2>
+
+
 	<%= link_to "add review", {controller: "reviews", action: "new", id: program.id}, :class => "ui-btn", :id => "add_review"%>
 	<%= link_to "add to my programs", {controller: "programs", action: "save", id: program.id}, :class => "ui-btn", :id => "add_program" %>
 	    

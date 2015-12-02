@@ -1,36 +1,10 @@
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-  <%= javascript_include_tag "http://code.jquery.com/jquery-1.11.3.min.js" %>
-  <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-  <style>
-
-    /* Blue color is: #0099FF;
-    *  Green color is: #00EC74;
-    *  Blue yes/unsure/no color is: #32A5E9;
-    *  Light Green: #C1F38D;
-    */
-
-
-    
-
-  </style>
-
 
 </head>
 <body>
 
-<script>
 
-$(document).ready(function(){
-  //
-});
-
-
-</script>
 
 
 <!-- Homepage -->
@@ -55,30 +29,28 @@ $(document).ready(function(){
   <center><h1>
     <%= link_to("Log in to view this page", controller: "users", action: "login") %>
   </h1></center>
+
+
   <% else %>
 
-    <div role="main" class="ui-content">
-      <div class="ui-grid-a">
-        <div class="ui-block-a">
-          <center><%= image_tag(person.photo_filename, size: "150x150") %></center>
-        </div>
-        <div class="ui-block-b">
-          <h1> 
-            <%= person.first_name + " " + person.last_name %>
-          </h1>
-          <!--<h2> Description/Position </h2>-->
-        </div>
-      </div><!-- /grid-a -->
-    </div>
 
-    <div class="ui-grid-solo">
-      <h1><center>Updates</center></h1>
-    </div>
-    <h2>My Professions</h2>
+    <center><%= image_tag(person.photo_filename, size: "125x125", id: "profile_picture") %></center>
+
+    <h2><center><%= person.first_name + " " + person.last_name %></center></h2>
+
+
+
+    <ul data-role="listview" data-inset="false">
+      <li>hello</li>
+    </ul>
+
+
+    <h2><center>Updates</center></h2>
+    <h2><center>My Professions<center></h2>
     <% for profession in person.professions %>
     <%= profession.title %><br/>
     <%end%>
-    <h2>My Programs</h2>
+    <h2><center>My Programs<center></h2>
     <% for program in person.programs %>
     <%= program.title %><br/>
     <%end%>

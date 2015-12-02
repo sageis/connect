@@ -19,10 +19,10 @@
     <div data-role="header">
       <div data-role="navbar">
         <ul>
-          <li><a href="homepage.html" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
-          <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
-          <li><a href="search.html" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
-          <li><a href="index.html" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
+          <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-nodisc-icon ui-btn-icon-notext" id = "home_icon"> </a></li>
+          <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-nodisc-icon ui-btn-icon-notext" id = "interests_icon"> </a></li>
+          <li><a href="/programs/search" class="ui-btn ui-icon-search ui-nodisc-icon ui-btn-icon-notext" id = "search_icon"> </a></li>
+          <li><a href="/users/logout" class="ui-btn ui-icon-back ui-nodisc-icon ui-btn-icon-notext" id = "logout_icon"> </a></li>
         </ul>
       </div>
     </div>
@@ -44,7 +44,11 @@
 
 
       <h2><center>List of Results</center></h2>
-      
+      <% for program in @all_programs %>
+
+      <div class="ui-grid-solo">
+        <h1><center><%= program.title %></center></h1>
+      </div>
 
         <ul data-role="listview" data-inset="true">
             <li data-role="list-divider">Profession A</li>
@@ -65,8 +69,11 @@
     </div>     
 
     <!--Panel: Contains the filter options through a panel that pushes out -->
-    <div data-role="panel" id="filter_panel"> 
-        <h1><center>Options</center></h1>
+    <div data-role="panel" data-display="push" id="filter_panel"> 
+      <h1><center>filters</center></h1>
+<!--       <div data-role="header" id = "panel_header">
+        <p id = "filter_title">filters</p>
+      </div> -->
 
         <%= form_for(@program, :method => :post, :url => {:action => :analyze_filters, :id => @program.id}) do |form| %>
           <div class="ui-field-contain">
@@ -79,11 +86,11 @@
             </div>    
 
             <div>
-              <%= form.select(:region, @all_regions,{ :prompt => "Please select a region"}, :name => "region_name") %>
+              <%= form.select(:region, @all_regions,{ :prompt => "select a region"}, class: "region_selector") %>
             
             </div>
             <div>
-              <%= form.select(:professions, @user_professions,{ :prompt => "Please select a profession"}, :name => "profession_name") %>
+              <%= form.select(:professions, @user_professions,{ :prompt => "select a profession"}, class: "profession_selector") %>
             </div>
 
             <div>
@@ -101,7 +108,7 @@
             </div>
                 
             <div>
-              <%= form.submit "Filter Results" %>
+              <%= form.submit "Filter Results", :id => "submit_button" %>
             </div>  
 
           </div>

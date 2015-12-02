@@ -10,43 +10,38 @@
     <div data-role="header">
       <div data-role="navbar">
         <ul>
-          <li><a href="homepage.html" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
-          <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
-          <li><a href="search.html" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
-          <li><a href="index.html" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
+          <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-nodisc-icon ui-btn-icon-notext" id = "home_icon"> </a></li>
+          <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-nodisc-icon ui-btn-icon-notext" id = "interests_icon"> </a></li>
+          <li><a href="/programs/search" class="ui-btn ui-icon-search ui-nodisc-icon ui-btn-icon-notext" id = "search_icon"> </a></li>
+          <li><a href="/users/logout" class="ui-btn ui-icon-back ui-nodisc-icon ui-btn-icon-notext" id = "logout_icon"> </a></li>
         </ul>
       </div>
     </div>
 
+	<h1><center>TITLE OF THE PROGRAM HERE</center></h1>
+	<center><%= image_tag("#{@program.photo_file_name}", alt: "Program", class: "program", class: "review_image")%></center>
+
+	    
+	<% @new_review.errors.full_messages.each do |msg| %>
+		<h1><%= msg %></h1>
+	<% end %> <!-- ends the errors -->
+	<% if (session[:user_id] != nil) then %>
+		<%= form_for(@new_review, :method => :post, :url => {:action => :create, :id => @new_review.id, :program_id => @program.id}) do |form| %>
 
 
-	<div class="ui-grid-a">
+		<div class = "review_comment">
+			<%= form.text_area(:review, :placeholder => "My experience was...") %>
+		</div>
 
-	    <div class="ui-block-a">
-	    	<center><%= image_tag("#{@program.photo_file_name}", alt: "Program", class: "program")%></center>
-	    </div>
-
-	    <div class="ui-block-b">
-	    	<% @new_review.errors.full_messages.each do |msg| %>
-				<h1><%= msg %></h1>
-			<% end %> <!-- ends the errors -->
-			<% if (session[:user_id] != nil) then %>
-				<%= form_for(@new_review, :method => :post, :url => {:action => :create, :id => @new_review.id, :program_id => @program.id}) do |form| %>
-					<table class="form">
-						<tr class = "login_row">
-							<td>
-								<%= User.find_by_id(session[:user_id]).first_name %>
-								<%= form.label(:new_review, "review:")%>
-								<%= form.text_field(:review, :placeholder => "My experience was...") %>
-								<%= form.submit "Post review" %>
-							</td>
-						</tr>
-					<table>
-				<% end %> <!--ends form-->
-			<% else %>
-				<center><h1><%= link_to("LOG IN TO REVIEW THIS PROGRAM", controller: "users", action: "login") %></h1></center>
-			<% end %> <!--ends the if/else -->
-	    </div>
+		<div class = "review_post_button">
+			<%= form.submit "Post review" %>
+		</div>
+		
+		<% end %> <!--ends form-->
+	<% else %>
+		<center><h1><%= link_to("LOG IN TO REVIEW THIS PROGRAM", controller: "users", action: "login") %></h1></center>
+	<% end %> <!--ends the if/else -->
+	    
 
 	</div>
 
