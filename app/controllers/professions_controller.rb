@@ -189,8 +189,8 @@ class ProfessionsController < ApplicationController
 			result = Quiz.find_by_id(profession.quiz_id)
 
 			value = 0
-			value += (result.writing * @real_results.writing)
-			value += (result.speaking * @real_results.speaking)
+			value += (result.writing * @quiz_results.writing)
+			value += (result.speaking * @quiz_results.speaking)
 			value += (result.persuading * @quiz_results.persuading)
 			value += (result.taking_initiative * @quiz_results.taking_initiative)
 			value += (result.analyzing * @quiz_results.analyzing)

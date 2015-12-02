@@ -14,7 +14,8 @@
  *= require_self
  */
 
-#top-header {
+
+  #top-header {
       background-color: #0099FF;
       border-color: #0099FF;
       color: white;
@@ -36,7 +37,10 @@
       font-family: 'Open Sans';
     }
 
-
+    .ui-navbar li a {
+        width: 100% !important; /* you need only this */
+        height: 50px !important; /* for demo only */
+    }
 
   #home_icon {
       background-color: #0099FF;
@@ -171,3 +175,76 @@
       width: 200px;
       border-radius: 5px;
     }
+
+    #profile_picture {
+      border-radius: 50%;
+      border: 0;
+      box-shadow: 5px 5px 5px #B0B0B0;
+    }
+
+    #quiz_submit {
+      background-color: #0099FF;
+    }
+
+    .program_image {
+      border:0;
+      width: 100px;
+    }
+
+    .ui-panel-inner { 
+      padding: 5 !important 
+    }
+
+    .region_selector {
+      font-family: 'Open Sans';
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .profession_selector {
+      font-family: 'Open Sans';
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    #submit_button {
+      color: red;
+      background-color: #0099FF;
+      font-family: 'Open Sans';
+    }
+
+    .review_image {
+      border: 0;
+    }
+
+    .review_comment {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .review_post_button {
+      width: 150px;
+      margin: 0 auto;
+    }
+
+    .program_description {
+      width: 90%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
