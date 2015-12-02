@@ -1,9 +1,3 @@
-<html>
-<head>
-
-</head>
-<body>
-
 <!-- Homepage -->
 <div data-role="page">
   <!-- figure out whose page it is -->
@@ -45,27 +39,29 @@
 
       <h2><center>List of Results</center></h2>
       <% for program in @all_programs %>
+        <% if (program.title != nil) %>
+          <div class="ui-grid-solo">
+            <h1><center>some kind of title?</center></h1>
+          </div>
 
-      <div class="ui-grid-solo">
-        <h1><center><%= program.title %></center></h1>
-      </div>
-
-        <ul data-role="listview" data-inset="true">
-            <li data-role="list-divider">Profession A</li>
-            <li><a href="">
-                <h2>Name of Opportunity</h2>
-                <p>description</p>
-            </a></li>
-            <li><a href="index.html">
-                <h2>Name of Opportunity</h2>
-                <p>description</p>
-            </a></li>
-            <li data-role="list-divider">Profession B</li>
-            <li><a href="">
-                <h2>Name of Opportunity</h2>
-                <p>description</p>
-            </a></li>
-        </ul>
+          <ul data-role="listview" data-inset="true">
+              <li data-role="list-divider">Profession A</li>
+              <li><a href="">
+                  <h2><%= program.title %></h2>
+                  <p><%= program.description %></p>
+              </a></li>
+             <!--  <li><a href="index.html">
+                  <h2>Name of Opportunity</h2>
+                  <p>description</p>
+              </a></li>
+              <li data-role="list-divider">Profession B</li>
+              <li><a href="">
+                  <h2>Name of Opportunity</h2>
+                  <p>description</p>
+              </a></li> -->
+          </ul>
+        <% end %>
+      <% end %>
     </div>     
 
     <!--Panel: Contains the filter options through a panel that pushes out -->
@@ -118,20 +114,5 @@
     
   <% end %> <!-- ends the if/else statement -->
 </div>
-
-  
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
 
 
