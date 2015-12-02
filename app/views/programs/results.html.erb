@@ -19,6 +19,9 @@
     </div>
 
 	<% for program in @all_programs %>
+	<% if (program.title == nil) then %>
+			<% next %>
+		<% end %>
 
 	<div class="ui-grid-solo">
 		<h1><center><%= program.title %></center></h1>

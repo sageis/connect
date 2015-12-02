@@ -82,6 +82,7 @@
       font-weight: 500;
       line-height: 26.4px;
       color: #808080;
+      line-height: 110%;
     }
 
     h2 {
@@ -92,6 +93,7 @@
       font-weight: 500;
       line-height: 26.4px;
       color: #808080;
+      line-height: 110%;
     }
 
     h3 {
@@ -103,6 +105,7 @@
       line-height: 26.4px;
       text-align: center;
       color: #808080;
+      line-height: 110%;
     }
 
     p {
@@ -112,7 +115,8 @@
       font-style: normal;
       font-weight: 500;
       line-height: 26.4px;
-      color: #808080;    
+      color: #808080; 
+      line-height: 110%;   
     }
 
     img {
@@ -231,9 +235,25 @@
       width: 90%;
     }
 
+    .my_professions {
+      padding-bottom: 1px;
+      border-bottom: 2px solid #EAEAEA;
+    }
 
+    .my_updates {
+      padding-bottom: 1px;
+      border-bottom: 2px solid #EAEAEA;
+    }
 
-
+    .homepage_content {
+      background-color: white;
+      border: 2px solid #EAEAEA;
+      width: 90%;
+      border-radius: 25px;
+      margin: 0 auto;
+      padding: 5px;
+      
+    }
 
 
 

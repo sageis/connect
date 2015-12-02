@@ -12,15 +12,19 @@
   <!-- figure out whose page it is -->
   
 
-    <!--Navigation Bar-->
-  <div data-role="navbar">
-    <ul>
-      <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
-      <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
-      <li><a href="/programs/search" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
-      <li><a href="/users/logout" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
-    </ul>
-  </div>
+   <!--Header: Contains the navigation bar -->
+    <div data-role="header">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-nodisc-icon ui-btn-icon-notext" id = "home_icon"> </a></li>
+          <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-nodisc-icon ui-btn-icon-notext" id = "interests_icon"> </a></li>
+          <li><a href="/programs/search" class="ui-btn ui-icon-search ui-nodisc-icon ui-btn-icon-notext" id = "search_icon"> </a></li>
+          <li><a href="/users/logout" class="ui-btn ui-icon-back ui-nodisc-icon ui-btn-icon-notext" id = "logout_icon"> </a></li>
+        </ul>
+      </div>
+    </div>
+
+
 
   <br>
   <br>
@@ -36,23 +40,30 @@
 
     <center><%= image_tag(person.photo_filename, size: "125x125", id: "profile_picture") %></center>
 
-    <h2><center><%= person.first_name + " " + person.last_name %></center></h2>
+    <h1><center><%= person.first_name + " " + person.last_name %></center></h1>
+
+    <div class = "homepage_content">
+
+      <div class = "my_updates">
+        <h2><center>Updates</center></h2>
+      </div>
+
+      <div class="my_professions">
+        <h2><center>My Professions<center></h2>
+        <%for profession in person.professions %>
+          <center><p><%= profession.title %></p></center>
+        <%end%>
+
+      </div>
 
 
+      <h2><center>My Programs<center></h2>
+      <% for program in person.programs %>
+      <%= program.title %><br/>
 
-    <ul data-role="listview" data-inset="false">
-      <li>hello</li>
-    </ul>
 
+    </div>
 
-    <h2><center>Updates</center></h2>
-    <h2><center>My Professions<center></h2>
-    <% for profession in person.professions %>
-    <%= profession.title %><br/>
-    <%end%>
-    <h2><center>My Programs<center></h2>
-    <% for program in person.programs %>
-    <%= program.title %><br/>
     <%end%>
   <% end %>
 </div>

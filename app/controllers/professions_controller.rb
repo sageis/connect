@@ -207,6 +207,8 @@ class ProfessionsController < ApplicationController
 		end
 
 		@@ranked_list = professions_list.sort { |a,b| b.value <=> a.value }
+		@curr_user.quiz_taken = true
+		@curr_user.save
 		redirect_to(:controller => "professions", :action => "results")
 	end
 end
