@@ -1,0 +1,15 @@
+<h1>0</h1>
+<%= @filter.price %>
+<h1>1</h1>
+<%= @filter.paid %>
+<h1>2</h1>
+<%= @filter.region %>
+<h1>3</h1>
+<% for profession in @filter.professions %>
+	<%= profession.title %>
+<% end %>
+
+<% for entry in @@ranked_list %>
+	<%= entry.program.title %> <br/>
+<% end %>
+

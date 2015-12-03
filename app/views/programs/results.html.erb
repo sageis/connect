@@ -6,17 +6,7 @@
 
 <div data-role="page">
 
-	<!--Header: Contains the navigation bar -->
-    <div data-role="header">
-      <div data-role="navbar">
-        <ul>
-          <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-nodisc-icon ui-btn-icon-notext" id = "home_icon"> </a></li>
-          <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-nodisc-icon ui-btn-icon-notext" id = "interests_icon"> </a></li>
-          <li><a href="/programs/search" class="ui-btn ui-icon-search ui-nodisc-icon ui-btn-icon-notext" id = "search_icon"> </a></li>
-          <li><a href="/users/logout" class="ui-btn ui-icon-back ui-nodisc-icon ui-btn-icon-notext" id = "logout_icon"> </a></li>
-        </ul>
-      </div>
-    </div>
+	<%= render "layouts/nav" %>
 
 	<% for program in @results %>
 		<!--skip blank programs -->

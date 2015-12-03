@@ -1,0 +1,16 @@
+<h2><center>List of Results</center></h2>
+<% for program in @all_programs_ajax %>
+  <% if (program.due_date != nil) %>
+    <div class="ui-grid-solo">
+      <h1><center>some kind of title?</center></h1>
+    </div>
+
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider"></li>
+      <li><a href="">
+          <h2><%= program.title %></h2>
+          <p><%= program.description %></p>
+      </a></li>
+    </ul>
+  <% end %>
+<% end %>

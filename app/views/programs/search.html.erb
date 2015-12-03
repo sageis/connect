@@ -8,75 +8,58 @@
       <%= link_to("Log in to view this page", controller: "users", action: "login") %>
     </h1></center>
   <% else %>
-  <%= render "layouts/nav" %>
+    <%= render "layouts/nav" %>
 
     <!--Main Page: Contains the main content on the page -->
     <div data-role="main" class="ui-content">
       <h1><center>opportunities</center></h1>
 
 
-        <div  data-theme="a" id="custom-footer" class="ui-grid-a"  data-position="fixed">
-          <div  class="ui-block-a" >
-              <a href="#filter_panel" data-role="button" data-mini="true" id ="filter_button" data-inline="true">filter</a>
-          </div>
-          <div  class="ui-block-b" >
-            <input type="search" placeholder="begin searching..." data-mini="true" data-clear-btn="true"/>
-          </div>
+      <div  data-theme="a" id="custom-footer" class="ui-grid-a"  data-position="fixed">
+        <div  class="ui-block-a" >
+            <a href="#filter_panel" data-role="button" data-mini="true" id ="filter_button" data-inline="true">filter</a>
         </div>
+        <div  class="ui-block-b" >
+          <input type="search" placeholder="begin searching..." data-mini="true" data-clear-btn="true"/>
+        </div>
+      </div>
 
+      <!-- Dynamic search stuff -->
+      <%= form_tag do %>
+        <%= text_field_tag :substring, '', :id => "substring" %>
+      <% end %>
+      <br/><br/><br/>
+      
+      <% @all_programs_ajax.each do |program| %>
+        <%= program.name %>
+        
+      <% end %>
+      <% @all_programs_ajax.clear %>
 
-<% return_value = 'cackle' %>
-<%= form_tag do %>
-  <%= label_tag :Search %>
-  <%= text_field_tag :substring, '', :id => "substring" %>
-  <%= submit_tag "Search", :id => "html_submit" %>
-<% end %>
-<br/><br/><br/>
-<% @all_programs_ajax.each do |program| %>
-  <% if (program.due_date == nil) %>
-    <% next %>
-  <% end %>
-  <center>
-    <%= link_to(program.title, controller: "programs", action: "index") %>
-    <br/>
-  </center>
-<% end %>
-<% @all_programs_ajax.clear %>
+      <div id="information"></div>
 
-<div id="information"></div>
+      <%= javascript_tag "var parser = new Parser('substring', 'information', '<br/><br/><br/>', '<div id=\"information\">')"; %>
 
-<%= javascript_tag "var parser = new Parser(" + @all_user_ids.to_json + ", 'html_submit', 'substring', 'information', '<br/><br/><br/>', '<div id=\"information\">')"; %>
-
-<%= @params_test %>
-
+      <%= @params_test %>
+      <!-- end of dynamic search stuff -->
 
 
       <h2><center>List of Results</center></h2>
-      <% for program in @all_programs %>
-        <% if (program.title != nil) %>
-          <div class="ui-grid-solo">
-            <h1><center>some kind of title?</center></h1>
-          </div>
+      <ul data-role="listview" data-inset="true">
+        <% for program in @all_programs %>
+          <% if (program.due_date != nil) %>
 
-          <ul data-role="listview" data-inset="true">
-              <li data-role="list-divider">Profession A</li>
-              <li><a href="">
+              <li><a href="/programs/oneprogram/<%= program.id %>" >
                   <h2><%= program.title %></h2>
                   <p><%= program.description %></p>
               </a></li>
-             <!--  <li><a href="index.html">
-                  <h2>Name of Opportunity</h2>
-                  <p>description</p>
-              </a></li>
-              <li data-role="list-divider">Profession B</li>
-              <li><a href="">
-                  <h2>Name of Opportunity</h2>
-                  <p>description</p>
-              </a></li> -->
-          </ul>
+            
+          <% end %>
         <% end %>
-      <% end %>
-    </div>     
+    </ul>
+    </div> 
+
+
 
     <!--Panel: Contains the filter options through a panel that pushes out -->
     <div data-role="panel" data-display="push" id="filter_panel"> 
@@ -87,9 +70,7 @@
 
         <%= form_for(@program, :method => :post, :url => {:action => :analyze_filters, :id => @program.id}) do |form| %>
           <div class="ui-field-contain">
-            <div>
-              <%= form.text_field :title, :placeholder => "program name..." %>
-            </div>
+            
 
             <div>
               <%= form.text_field :price, :placeholder => "price..." %> 
@@ -108,6 +89,8 @@
               <%= label_tag(:housing_type_Housed, "Housed") %>
               <%= radio_button_tag(:housing_type, "Unhoused") %>
               <%= label_tag(:housing_type_Unhoused, "Unhoused") %>
+              <%= radio_button_tag(:housing_type, "Unsure") %>
+              <%= label_tag(:housing_type_Unsure, "Unsure") %>
             </div>
 
             <div>
@@ -115,6 +98,8 @@
               <%= label_tag(:paid_yes, "Strong preference toward paid") %>
               <%= radio_button_tag(:paid, "no") %>
               <%= label_tag(:paid_no, "Unpaid is also acceptable") %>
+              <%= radio_button_tag(:paid, "unsure") %>
+              <%= label_tag(:paid_unsure, "Unsure") %>
             </div>
                 
             <div>

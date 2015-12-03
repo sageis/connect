@@ -157,6 +157,10 @@ class ProgramsController < ApplicationController
 		#@user_programs = User.find_by_id(session[:user_id]).programs
 	end
 
+	def oneprogram
+		@program = Program.find_by_id(params[:id])
+	end
+
 	#save programs to the user's list of programs
 	def save
 		@user = User.find_by_id(session[:user_id])

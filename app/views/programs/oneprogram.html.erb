@@ -1,0 +1,40 @@
+<div data-role="page">
+	<%= render "layouts/nav" %>
+
+	<div class="ui-grid-solo">
+		<h1><center><%= @program.title %></center></h1>
+	</div>
+
+	<div class="ui-grid-solo">
+		<% for profession in @program.professions %>
+			<h1><center><%= profession.title %></center></h1>
+		<% end %>
+	</div>
+
+	<center><%= image_tag(@program.photo_file_name, class: "program_image") %><center>
+	    
+	<div class = "program_description">
+		<p><%= @program.description %></p>
+	</div>
+
+	<%= link_to "add review", {controller: "reviews", action: "new", id: @program.id}, :class => "ui-btn", :id => "add_review"%>
+	<%= link_to "add to my programs", {controller: "programs", action: "save", id: @program.id}, :class => "ui-btn", :id => "add_program" %>
+	    
+	<table>
+		<% for review in @program.reviews %>
+			<tr>
+				<td>
+					<div class="row">
+						<%= review.review %>
+						<div class="review_date">
+						<%= review.date_time.getlocal %>
+						</div>
+						<br/>
+					</div>
+					<br/>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+
+</div>

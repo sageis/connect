@@ -1,4 +1,4 @@
-function Parser(user_id_array, submit_id, substring_id, put_info_here, start_string, end_string) {
+function Parser(substring_id, put_info_here, start_string, end_string) {
   var obj = this;
   document.getElementById(put_info_here).innerHTML = "";
   var photo_array = new Array();

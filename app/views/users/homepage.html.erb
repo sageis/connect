@@ -17,52 +17,15 @@
       <%= link_to("Log in to view this page", controller: "users", action: "login") %>
     </h1></center>
   <% else %>
+    <%= render "layouts/nav" %>
   
 
-    <!--Header: Contains the navigation bar -->
-    <div data-role="header">
-      <div data-role="navbar">
-        <ul>
-
-          <li>
-            <a href="/users/homepage" class="ui-btn" id = "home_icon"> 
-              <i class="fa fa-home fa-inverse fa-lg"></i>
-            </a>
-          </li>
-          <% if (person.quiz_taken == false) %>
-            <li>
-              <a href="/professions/quiz" class="ui-btn" id = "interests_icon">
-                <i class="fa fa-suitcase fa-inverse fa-lg"></i>
-              </a>
-            </li>
-          <% else %>
-            <li>
-              <a href="/professions/myprofessions" class="ui-btn" id = "interests_icon">
-                <i class="fa fa-suitcase fa-inverse fa-lg"></i>
-              </a>
-            </li>
-          <%end%>
-
-          <li>
-            <a href="/programs/search" class="ui-btn" id = "search_icon">
-              <i class="fa fa-search fa-inverse fa-lg"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="/users/logout" class="ui-btn" id = "logout_icon">
-              <i class="fa fa-sign-out fa-inverse fa-lg"></i>
-            </a>
-          </li>
-
-        </ul>
-      </div>
-    </div>
+  
 
 
 
-  <br>
-  <br>
+  <br/>
+  <br/>
 
 
     <center><%= image_tag(person.photo_filename, size: "125x125", id: "profile_picture") %></center>

@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
 		@new_review.date_time = DateTime.now
 		@Program = Program.find(params[:program_id])
 		if @new_review.save then
-			redirect_to(:controller => "programs", :action => "results")
+			redirect_to(:controller => "programs", :action => "oneprogram", :id => @program.id)
 		else
 			@new_review = Review.new
 			@new_review.save

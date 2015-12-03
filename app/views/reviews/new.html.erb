@@ -6,36 +6,7 @@
 
 <div data-role="page">
 
-	<!--Header: Contains the navigation bar -->
-    <div data-role="header">
-      <div data-role="navbar">
-        <ul>
-
-          <li>
-            <a href="/users/homepage" class="ui-btn" id = "home_icon"> 
-              <i class="fa fa-home fa-inverse fa-lg"></i>
-            </a>
-          </li>
-            <li>
-              <a href="/professions/quiz" class="ui-btn" id = "interests_icon">
-                <i class="fa fa-suitcase fa-inverse fa-lg"></i>
-              </a>
-            </li>
-          <li>
-            <a href="/programs/search" class="ui-btn" id = "search_icon">
-              <i class="fa fa-search fa-inverse fa-lg"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="/users/logout" class="ui-btn" id = "logout_icon">
-              <i class="fa fa-sign-out fa-inverse fa-lg"></i>
-            </a>
-          </li>
-
-        </ul>
-      </div>
-    </div>
+	<%= render "layouts/nav" %>
 
 	<h1><center><%= @program.title %></center></h1>
 	<center><%= image_tag("#{@program.photo_file_name}", alt: "Program", class: "program", class: "review_image")%></center>

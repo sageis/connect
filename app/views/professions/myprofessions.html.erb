@@ -11,17 +11,7 @@
     </h1></center>
   <% else %>
 
-    <!--Header: Contains the navigation bar -->
-    <div data-role="header">
-      <div data-role="navbar">
-        <ul>
-          <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-btn-icon-top ui-nodisc-icon" id = "home_icon"> </a></li>
-          <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-btn-icon-top ui-nodisc-icon" id = "interests_icon"> </a></li>
-          <li><a href="/programs/search" class="ui-btn ui-icon-search ui-btn-icon-top ui-nodisc-icon" id = "search_icon"> </a></li>
-          <li><a href="/users/logout" class="ui-btn ui-icon-back ui-btn-icon-top ui-nodisc-icon" id = "logout_icon"> </a></li>
-        </ul>
-      </div>
-    </div>
+    <%= render "layouts/nav" %>
 
 
     <!--Main Page: Contains the main content on the page -->
