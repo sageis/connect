@@ -1,0 +1,25 @@
+<% person = User.find_by_id(session[:user_id]) %>
+  <% if (person == nil) then %>
+    <center><h1>
+      <%= link_to("Log in to view this page", controller: "users", action: "login") %>
+    </h1></center>
+  <% else %>
+
+    <!--Header: Contains the navigation bar -->
+    <div data-role="header">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-nodisc-icon ui-btn-icon-notext" id = "home_icon"> </a></li>
+          <!--beginning of additions-->
+          <% if (person.quiz_taken == true) %>
+            <li><a href="/professions/myprofessions" class="ui-btn ui-icon-heart ui-nodisc-icon ui-btn-icon-notext" id = "interests_icon"> </a></li>
+          <% else %>
+            <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-nodisc-icon ui-btn-icon-notext" id = "interests_icon"> </a></li>
+          <% end %>
+          <!--end of additions-->
+          <li><a href="/programs/search" class="ui-btn ui-icon-search ui-nodisc-icon ui-btn-icon-notext" id = "search_icon"> </a></li>
+          <li><a href="/users/logout" class="ui-btn ui-icon-back ui-nodisc-icon ui-btn-icon-notext" id = "logout_icon"> </a></li>
+        </ul>
+      </div>
+    </div>
+<% end %>

@@ -1,9 +1,8 @@
-<h1> Did this work </h1>
 <% if (@all_programs == nil) then %>
 	<%= "@all_programs == nil" %>
 <% else %>
 	<% for program in @all_programs %>
-		<%= program.description %>
+		<%= program.title %><br/>
 	<% end %>
 <% end %>
 

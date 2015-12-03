@@ -8,24 +8,7 @@
       <%= link_to("Log in to view this page", controller: "users", action: "login") %>
     </h1></center>
   <% else %>
-
-    <!--Header: Contains the navigation bar -->
-    <div data-role="header">
-      <div data-role="navbar">
-        <ul>
-          <li><a href="/users/homepage" class="ui-btn ui-icon-home ui-nodisc-icon ui-btn-icon-notext" id = "home_icon"> </a></li>
-          <!--beginning of additions-->
-          <% if (person.quiz_taken == true) %>
-            <li><a href="/professions/myprofessions" class="ui-btn ui-icon-heart ui-nodisc-icon ui-btn-icon-notext" id = "interests_icon"> </a></li>
-          <% else %>
-            <li><a href="/professions/quiz" class="ui-btn ui-icon-heart ui-nodisc-icon ui-btn-icon-notext" id = "interests_icon"> </a></li>
-          <% end %>
-          <!--end of additions-->
-          <li><a href="/programs/search" class="ui-btn ui-icon-search ui-nodisc-icon ui-btn-icon-notext" id = "search_icon"> </a></li>
-          <li><a href="/users/logout" class="ui-btn ui-icon-back ui-nodisc-icon ui-btn-icon-notext" id = "logout_icon"> </a></li>
-        </ul>
-      </div>
-    </div>
+  <%= render "layouts/nav" %>
 
     <!--Main Page: Contains the main content on the page -->
     <div data-role="main" class="ui-content">
@@ -40,6 +23,31 @@
             <input type="search" placeholder="begin searching..." data-mini="true" data-clear-btn="true"/>
           </div>
         </div>
+
+
+<% return_value = 'cackle' %>
+<%= form_tag do %>
+  <%= label_tag :Search %>
+  <%= text_field_tag :substring, '', :id => "substring" %>
+  <%= submit_tag "Search", :id => "html_submit" %>
+<% end %>
+<br/><br/><br/>
+<% @all_programs_ajax.each do |program| %>
+  <% if (program.due_date == nil) %>
+    <% next %>
+  <% end %>
+  <center>
+    <%= link_to(program.title, controller: "programs", action: "index") %>
+    <br/>
+  </center>
+<% end %>
+<% @all_programs_ajax.clear %>
+
+<div id="information"></div>
+
+<%= javascript_tag "var parser = new Parser(" + @all_user_ids.to_json + ", 'html_submit', 'substring', 'information', '<br/><br/><br/>', '<div id=\"information\">')"; %>
+
+<%= @params_test %>
 
 
 
@@ -88,11 +96,11 @@
             </div>    
 
             <div>
-              <%= form.select(:region, @all_regions,{ :prompt => "select a region"}, class: "region_selector") %>
+              <%= form.select(:region, @all_regions,{ :prompt => "select a region"}, class: "region_selector", :name => "region_name") %>
             
             </div>
             <div>
-              <%= form.select(:professions, @user_professions,{ :prompt => "select a profession"}, class: "profession_selector") %>
+              <%= form.select(:professions, @user_professions,{ :prompt => "select a profession"}, class: "profession_selector", :name => "profession_name") %>
             </div>
 
             <div>

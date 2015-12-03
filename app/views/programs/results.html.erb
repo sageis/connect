@@ -18,47 +18,56 @@
       </div>
     </div>
 
-	<% for program in @all_programs %>
-	<% if (program.title == nil) then %>
-			<% next %>
-		<% end %>
+	<% for program in @results %>
+		<!--skip blank programs -->
+		<% if (program.due_date == nil) then %>
+				<% next %>
+			<% end %>
 
-	<div class="ui-grid-solo">
-		<h1><center><%= program.title %></center></h1>
-	</div>
+		<div class="ui-grid-solo">
+			<h1><center><%= program.title %></center></h1>
+		</div>
 
-
-	    
-	<center><%= image_tag(program.photo_file_name, class: "program_image") %><center>
-	    
-	<div class = "program_description">
-		<p><%= program.description %></p>
-	</div>
-
+		<div class="ui-grid-solo">
+			<% for profession in program.professions %>
+				<h1><center><%= profession.title %></center></h1>
+			<% end %>
+		</div>
 
 
-	<%= link_to "add review", {controller: "reviews", action: "new", id: program.id}, :class => "ui-btn", :id => "add_review"%>
-	<%= link_to "add to my programs", {controller: "programs", action: "save", id: program.id}, :class => "ui-btn", :id => "add_program" %>
-	    
-	
 
+
+		    
+		<center><%= image_tag(program.photo_file_name, class: "program_image") %><center>
+		    
+		<div class = "program_description">
+			<p><%= program.description %></p>
+		</div>
+
+
+
+		<%= link_to "add review", {controller: "reviews", action: "new", id: program.id}, :class => "ui-btn", :id => "add_review"%>
+		<%= link_to "add to my programs", {controller: "programs", action: "save", id: program.id}, :class => "ui-btn", :id => "add_program" %>
+		    
 		
-		<table>
-			<% for review in program.reviews %>
-				<tr>
-					<td>
-						<div class="row">
-							<%= review.review %>
-							<div class="review_date">
-							<%= review.date_time.getlocal %>
+
+			
+			<table>
+				<% for review in program.reviews %>
+					<tr>
+						<td>
+							<div class="row">
+								<%= review.review %>
+								<div class="review_date">
+								<%= review.date_time.getlocal %>
+								</div>
+								<br/>
 							</div>
 							<br/>
-						</div>
-						<br/>
-					</td>
-				</tr>
-			<% end %>
-		</table>
+						</td>
+					</tr>
+				<% end %>
+			</table>
 
 	<% end %>
 </div>
