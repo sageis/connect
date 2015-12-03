@@ -37,9 +37,10 @@
       font-family: 'Open Sans';
     }
 
-    .ui-navbar li a {
+    .ui-navbar li a i {
         width: 100% !important; /* you need only this */
-        height: 50px !important; /* for demo only */
+        height: 25px !important; /* for demo only */
+        padding-top: 10px;
     }
 
   #home_icon {
@@ -235,36 +236,13 @@
       width: 90%;
     }
 
-    .my_professions {
-      padding-bottom: 1px;
-      border-bottom: 2px solid #EAEAEA;
+    #logo {
+      border:none;
     }
 
-    .my_updates {
-      padding-bottom: 1px;
-      border-bottom: 2px solid #EAEAEA;
-    }
-
-    .homepage_content {
-      background-color: white;
-      border: 2px solid #EAEAEA;
+    #homepage_content{
+      background-color: #F1F1F1;
       width: 90%;
-      border-radius: 25px;
       margin: 0 auto;
-      padding: 5px;
-      
+      border-radius: 25px;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
