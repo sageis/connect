@@ -14,6 +14,10 @@ class AddProfessionsToPrograms < ActiveRecord::Migration
   	Program.find_by_title("Program in Mathematics for Young Scientists").professions << Profession.find_by_title("Accountant")
   	Program.find_by_title("REEL Education for Youth (RECYouth)").professions << Profession.find_by_title("Professor")
   	Program.find_by_title("Minority Introduction to Engineering and Science").professions << Profession.find_by_title("Software Engineer")
+    User.find_by_first_name("Jasmine").quiz_taken = false
+    User.find_by_first_name("Betsy").quiz_taken = false
+    User.find_by_first_name("Sage").quiz_taken = false
+    User.find_by_first_name("Cristian").quiz_taken = false
 
   end
 end
