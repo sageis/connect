@@ -85,12 +85,8 @@
             
 
             <div>
-              <%= form.text_field :price, :placeholder => "Max $", id: 'ex8', type: 'text', data: {'slider-id' => 'ex1Slider',
-                        'slider-min' => '0',
-                        'slider-max' => '100',
-                        'slider-step' => '1',
-                        'slider-value' => '50' } %> 
-            </div>  <br/>  
+              <%= form.select(:price, @all_prices,{ :prompt => "select a maximum price"}, class: "price_selector", :name => "price_name") %>
+            </div> 
 
             <div>
               <%= form.select(:region, @all_regions,{ :prompt => "select a region"}, class: "region_selector", :name => "region_name") %>

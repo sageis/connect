@@ -9,6 +9,34 @@ class ProgramsController < ApplicationController
 		@program = Program.new
 		@program.save
 
+		@all_prices = Array.new
+		#build region dropdown menu
+		mini_array = Array.new
+		mini_array << 0
+		mini_array << 0
+		@all_prices << mini_array
+
+		mini_array = Array.new
+		mini_array << 25
+		mini_array << 25
+		@all_prices << mini_array
+
+		mini_array = Array.new
+		mini_array << 50
+		mini_array << 50
+		@all_prices << mini_array
+
+		mini_array = Array.new
+		mini_array << 75
+		mini_array << 75
+		@all_prices << mini_array
+
+		mini_array = Array.new
+		mini_array << 100
+		mini_array << 100
+		@all_prices << mini_array
+
+
 
 		@all_regions = Array.new
 		#build region dropdown menu
@@ -63,14 +91,18 @@ class ProgramsController < ApplicationController
 		else
 			@filter.paid = true
 		end
-		#@filter.professions << Profession.find_by_title(params[:profession_name])
+		if (params[:profession_name] != nil)
+			if (Profession.find_by_title(params[:profession_name]) != nil)
+				@filter.professions << Profession.find_by_title(params[:profession_name])
+			end
+		end
 		@text = params[:profession_name]
 
 		# #not working
-		# if (params[:price] == nil)
-		# 	#raise params.inspect
-		# end
-		@filter.price = params[:price]
+		if (params[:price_name] != nil)
+			@filter.price = params[:price_name]
+		end
+		
 
 		if (params[:housed] == false)
 			#raise params.inspect
@@ -96,9 +128,9 @@ class ProgramsController < ApplicationController
 			if (@filter.housed == program.housed)
 				value += 1
 			end
-			# if (@filter.price >= program.price)
-			# 	value += 1
-			# end
+			if (@filter.price >= program.price)
+				value += 1
+			end
 			if (@filter.region == program.region)
 				value += 1
 			end
