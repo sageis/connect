@@ -191,6 +191,7 @@ class ProgramsController < ApplicationController
 
 	def oneprogram
 		@program = Program.find_by_id(params[:id])
+		@reviews = @program.reviews
 	end
 
 	#save programs to the user's list of programs

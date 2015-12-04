@@ -49,12 +49,13 @@
 
     <div data-role="content">
       <h1><center>professions quiz</center></h1>
-      <h3><center>vwould you want your future career to involve the following categories?</center></h3>
+      <h3><center>would you want your future career to involve the following categories?</center></h3>
         <%= form_for(@new_quiz, :method => :post, :url => {:action => :analyze_results, :id => @new_quiz.id}) do |form| %>
       
         
 
         <center><h2>Speaking</h2>
+          <h3>Negotiation, presentations, explaining</h3>
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:speaking, "2") %>
             <%= label_tag(:speaking_2, "No") %>
@@ -66,6 +67,7 @@
         </center>
 
         <center><h2>Persuading</h2>
+          <h3>Negotiation, inspiring, motivating, arguing </h3>
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:persuading, "2") %>
             <%= label_tag(:persuading_2, "No") %>
@@ -77,6 +79,7 @@
         </center>
 
         <center><h2>Taking Initiative</h2>
+          <h3> Taking charge, coming up with your own ideas </h3>
         
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:taking_initiative, "2") %>
@@ -89,6 +92,7 @@
         </center>
 
         <center><h2>Analyzing</h2>
+          <h3> Interpreting data, putting information together </h3>
         
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:analyzing, "2") %>
@@ -101,7 +105,7 @@
         </center>
 
         <center><h2>Creating</h2>
-        
+          <h3> Using creativity and/or logic in art, engineering, writing, etc </h3>
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:creating, "2") %>
             <%= label_tag(:creating_2, "No") %>
@@ -113,6 +117,7 @@
         </center>
 
         <center><h2>Problem Solving</h2>
+          <h3> Reasoning, finding creative solutions, evaluating issues </h3>
         
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:problem_solving, "2") %>
@@ -125,7 +130,7 @@
         </center>
 
         <center><h2>Helping</h2>
-        
+          <h3> Assisting others - through face to face interactions, legislation, creating tools, etc </h3>
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:helping, "2") %>
             <%= label_tag(:helping_2, "No") %>
@@ -137,7 +142,7 @@
         </center>
 
         <center><h2>Physical Activities</h2>
-        
+          <h3> Mobility - not your classic desk job </h3>
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:physical_activities, "2") %>
             <%= label_tag(:physical_activities_2, "No") %>
@@ -149,7 +154,7 @@
         </center>
 
         <center><h2>Organizing</h2>
-        
+          <h3> Planning, scheduling, doing things in a logical manner </h3>
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:organizing, "2") %>
             <%= label_tag(:organizing_2, "No") %>
@@ -161,7 +166,7 @@
         </center>
 
         <center><h2>Teamwork</h2>
-        
+          <h3> Cooperating with others, sharing ideas </h3>
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:team_work, "2") %>
             <%= label_tag(:team_work_2, "No") %>
@@ -173,7 +178,9 @@
         </center>
 
         <center><h2>Investigating</h2>
-        
+          <h3> Determining cause and effect, observing things closely,
+
+          </h3>
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:investigating, "2") %>
             <%= label_tag(:investigating_2, "No") %>
@@ -185,7 +192,7 @@
         </center>
 
         <center><h2>Building</h2>
-        
+          <h3> working on existing projects or starting from scratch </h3>
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:build, "2") %>
             <%= label_tag(:build_2, "No") %>
@@ -197,7 +204,7 @@
         </center>
 
         <center><h2>Writing</h2>
-        
+          <h3> reports, essays, books, articles, explanations, scripts, advertisements, etc </h3>
           <div data-role="controlgroup" data-type="horizontal" data-mini="true">
             <%= radio_button_tag(:writing, "2") %>
             <%= label_tag(:writing_2, "No") %>
