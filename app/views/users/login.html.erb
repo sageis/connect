@@ -9,7 +9,7 @@
 <div data-role="page">
   <div data-role="header" id = "top-header">
     <div id = "header-content">
-      <%= image_tag("connectLogo.png", size: "65x65", id: "logo") %>
+      <%= image_tag("connectLogo", size: "65x65", id: "logo") %>
       <h1 class = "intro_title">connect</h1>
     </div>
   </div>
@@ -21,7 +21,9 @@
       <div class="ui-field-contain">
           <%= form.text_field :login, :placeholder => "username" %>
           <%= form.password_field :password, :placeholder => "password" %> 
-          <%= form.submit "log in" %>
+          <div id = "login-submit">
+            <%= form.submit "log in" %>
+          </div>
           <center><a href="/users/new" data-role="button" data-inline="true" data-mini="true">new account</a></center>
           <% end %>
       </div>

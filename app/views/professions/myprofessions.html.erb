@@ -18,15 +18,32 @@
     <div data-role="main" class="ui-content">
       <center>
       <h1>My Professions </h1>
-      <% for profession in person.professions %>
-        <%= profession.title %><br/>
-        <%= profession.description %><br/>
-        <%= image_tag(profession.file_name, size: "200x150") %><br/>
-      <% end %>
+
+        <ul data-role="listview" data-inset="true" data-divider-theme="a" id = "homepage_content" data-icon = "delete">
+
+              <%for profession in person.professions %>
+                <li><a href = "">
+                  <%= image_tag(profession.file_name, class: "myprofession_image") %>
+                  <h1><%= profession.title %></h1>
+                  <p><%= profession.description %></p>
+
+                </a></li>
+              <%end%>      
     
-    <%= link_to "Find More Professions", controller: "professions", action: "index" %>
-    <br/>
-    <%= link_to "Retake Profession Quiz", controller: "professions", action: "quiz" %>
+          </ul>
+      
+
+    <button type="button" id = "find-more-button"><%= link_to "Find More Professions", controller: "professions", action: "index" %></button>
+    <!-- <div id = "find-prof-button">
+      <%= link_to "Find More Professions", controller: "professions", action: "index" %>
+    </div> -->
+
+    <button type="button" id = "retake-profession-quiz"><%= link_to "Retake Profession Quiz", controller: "professions", action: "quiz" %></button>
+
+  <!--   <div id = "retake-quiz-button">
+      <%= link_to "Retake Profession Quiz", controller: "professions", action: "quiz" %>
+    </div> -->
+
     </center>
     </div>
     

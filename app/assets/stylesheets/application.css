@@ -152,8 +152,6 @@
       background-color: #E4E4E4;
     }
 
-
-
     #add_review {
       color: white;
       background-color: #0099FF;
@@ -176,10 +174,6 @@
       border-radius: 50%;
       border: 0;
       box-shadow: 5px 5px 5px #B0B0B0;
-    }
-
-    #quiz_submit {
-      background-color: #0099FF;
     }
 
     .program_image {
@@ -228,12 +222,7 @@
     }
 
 
-    #homepage_content{
-      background-color: #F1F1F1;
-      width: 90%;
-      margin: 0 auto;
-      border-radius: 25px;
-    }
+    
 
     /*#information {
       background-color: #F4F4F4;
@@ -295,15 +284,83 @@
       text-align: center;
     }
 
+    #login-submit {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    #quiz-submit{
+      width: 250px;
+      margin: 0 auto;
+    }
+
+    .my-professions-content{
+      background-color: #F4F4F4;
+      border-radius: 10px;
+      padding: 15px;
+      border-style: solid;
+      border-width: 3px;
+      border-color: #D5D5D5;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    #homepage_content{
+      background-color: #F1F1F1;
+      width: 90%;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
 
 
+   #find-more-button{
+    width: 250px;
+   }
 
+   #retake-profession-quiz{
+    width: 250px;
+   }
 
+   .myprofession_image{
+      border: 0;
+      width: 500px; /* you can use % */
+      height: auto;
+   }
 
+   .all-profession-info{
+      background-color: #F4F4F4;
+      border-radius: 5px;
+      width: 90%;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      padding: 15px;
+      border-style: solid;
+      border-width: 2px;
+      border-color: #D5D5D5; 
+   }
 
+   .all-profession-title{
+    text-align: center;
+   }
 
+   .all-professions-image{
+    text-align: center; 
+   }
 
+   .prof_image{
+    border:0;
+    width: 300px;
+    height: auto;
+   }
 
+   .all-professions-description{
+    text-align: center;
+   }
+
+   #add-to-professions{
+    width: 250px;
+    margin: 0 auto;
+   }
 
 
 

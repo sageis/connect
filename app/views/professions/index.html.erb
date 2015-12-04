@@ -10,15 +10,27 @@
   <% else %>
 
 	<% if (@all_professions == nil) then %>
-		<h1>Professions: </h1>
+		<h1><center>Professions<center></h1>
 	<% else %>
-		<h1> Professions: </h1>
+		<h1><center>Professions</center></h1>
 		<% for profession in @all_professions %>
-			<div> <%= profession.title %> </div>
-			<div> <%= profession.description %> </div>
-			<%= image_tag(profession.file_name, size: "200x150") %>
-			<%= link_to("Add to My Professions", controller: "professions", action: "add", id: profession.id) %>
-			<br/><br/><br/>
+			<div class = "all-profession-info">
+				<div class = "all-profession-title">
+					<h2><%= profession.title %> </h2>
+				</div>
+				<div class = "all-professions-image">
+					<%= image_tag(profession.file_name, class: "prof_image") %>
+				</div>
+				<div class = "all-professions-description">
+					<h3><%= profession.description %></h3>
+					<button type="button" id = "add-to-professions">
+						<%= link_to("Add to My Professions", controller: "professions", action: "add", id: profession.id) %>
+					</button>
+				</div>
+				
+				
+
+			</div>
 		<% end %>
 	<% end %>
 <% end %>
