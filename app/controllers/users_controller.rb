@@ -83,7 +83,7 @@ class UsersController < ApplicationController
   # 				  uploaded_io.original_filename), 'wb') do |file|
   #   		file.write(uploaded_io.read)
   # 		end
-  		@user.photo_filename = "nothing"
+  		@user.photo_filename = "random.jpg"
 		if (params[:user][:password] != params[:user][:password1]) then
 			@user = User.new
 			@user.save
@@ -105,7 +105,6 @@ class UsersController < ApplicationController
 				redirect_to(:controller => "users", :action => "homepage")
 				return
 			else
-				raise params.inspect
 				return
 			end
 		# else

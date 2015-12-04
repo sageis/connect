@@ -55,20 +55,21 @@
       <%= @params_test %>
       <!-- end of dynamic search stuff -->
 
+      <div id="list">
+        <h2><center>List of Results</center></h2>
+        <ul data-role="listview" data-inset="true">
+          <% for program in @all_programs %>
+            <% if (program.due_date != nil) %>
 
-      <h2><center>List of Results</center></h2>
-      <ul data-role="listview" data-inset="true">
-        <% for program in @all_programs %>
-          <% if (program.due_date != nil) %>
-
-              <li><a href="/programs/oneprogram/<%= program.id %>" >
-                  <h2><%= program.title %></h2>
-                  <p><%= program.description %></p>
-              </a></li>
-            
+                <li><a href="/programs/oneprogram/<%= program.id %>" >
+                    <h2><%= program.title %></h2>
+                    <p><%= program.description %></p>
+                </a></li>
+              
+            <% end %>
           <% end %>
-        <% end %>
-    </ul>
+        </ul>
+      </div>
     </div> 
 
 
@@ -125,11 +126,3 @@
     
   <% end %> <!-- ends the if/else statement -->
 </div>
-
-<input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50"/>
-<script>
-  $("#ex8").slider({
-      tooltip: 'always'
-  });
-</script>
-

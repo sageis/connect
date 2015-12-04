@@ -20,6 +20,7 @@ function Parser(substring_id, put_info_here, start_string, end_string) {
           var relevant_substring = text.substring(start_data.index + 15, end_data.index);
           document.getElementById(put_info_here).innerHTML = relevant_substring;
           console.log("relevant substring: " + relevant_substring);
+          document.getElementById("list").style.visibility = "hidden";
         }
         else {
           return;
