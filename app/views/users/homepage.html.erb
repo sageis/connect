@@ -27,7 +27,9 @@
   <br/>
   <br/>
 
-
+  <% if (@tutorial) %>
+    <h1>IT'S MY FIRST TIME HERE YO! </h1>
+  <% end %>
     <center><%= image_tag(person.photo_filename, size: "125x125", id: "profile_picture") %></center>
 
     <h1><center><%= person.first_name + " " + person.last_name %></center></h1>

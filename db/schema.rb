@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20151203074101) do
     t.string   "password"
     t.integer  "quiz_id"
     t.boolean  "quiz_taken"
+    t.integer  "first_time"
     t.string   "photo_filename"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

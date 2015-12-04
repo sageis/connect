@@ -76,6 +76,7 @@ class UsersController < ApplicationController
 		@user.first_name = params[:user][:first_name]
 		@user.last_name = params[:user][:last_name]
 		@user.quiz_taken = false
+		@user.first_time = 0
 		
 		# uploaded_io = params[:user][:photo_filename]
 
@@ -117,6 +118,14 @@ class UsersController < ApplicationController
 	end
 
 	def homepage
+		@user = User.find_by_id(session[:user_id])
+		if (@user.first_time == 0)
+			@tutorial = true
+		else
+			@tutorial = false
+		end
+		@user.first_time += 1
+		@user.save
 		
 	end
 

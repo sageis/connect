@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
 			t.string :password
 			t.integer :quiz_id
 			t.boolean :quiz_taken
+			t.integer :first_time
 			t.string :photo_filename
 			t.timestamps null: false
 		end
