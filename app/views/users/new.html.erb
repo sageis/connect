@@ -1,51 +1,60 @@
-<h4> <%= params[:error] %> </h4>
+<div data-role="header" id = "top-header">
+<div id = "header-content">
+  <%= image_tag("connectLogo", size: "65x65", id: "logo") %>
+  <h1 class = "intro_title">connect</h1>
+</div>
+</div>
 
-<% @user.errors.full_messages.each do |msg| %>
-	<h1><%= msg %></h1>
-<% end %>
+<div id = "new-account-content">
+	<h4> <%= params[:error] %> </h4>
 
-<%= form_for(@user, :method => :post, :url => {:action => :create, :id => @user.id}) do |form| %>
-	<table class="form">
-		<tr class = "login_row">
-			<td>
-				<%= form.label(:first_name, "First Name:")%>
-				<%= form.text_field(:first_name) %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<%= form.label(:last_name, "Last Name:")%>
-				<%= form.text_field(:last_name) %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<%= form.label(:login, "Login:")%>
-				<%= form.text_field(:login) %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<%= form.label(:password, "Password:")%>
-				<%= form.password_field(:password) %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<%= form.label(:password1, "Confirm password:")%>
-				<%= form.password_field(:password1) %>
-			</td>
-		</tr>
-		<tr class = "login_row">
-			<td>
-				<%= form.label(:photo_filename, "Upload Profile Photo:")%>
-				<%= form.file_field(:photo_filename) %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<%= form.submit "Register" %>
-			</td>
-		</tr>
-	</table>
+	<% @user.errors.full_messages.each do |msg| %>
+		<h1><%= msg %></h1>
+	<% end %>
+
+	<%= form_for(@user, :method => :post, :url => {:action => :create, :id => @user.id}) do |form| %>
+		<table class="form">
+			<tr class = "login_row">
+				<td>
+					<%= form.label(:first_name, "First Name:")%>
+					<%= form.text_field(:first_name) %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= form.label(:last_name, "Last Name:")%>
+					<%= form.text_field(:last_name) %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= form.label(:login, "Login:")%>
+					<%= form.text_field(:login) %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= form.label(:password, "Password:")%>
+					<%= form.password_field(:password) %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= form.label(:password1, "Confirm password:")%>
+					<%= form.password_field(:password1) %>
+				</td>
+			</tr>
+			<tr class = "login_row">
+				<td>
+					<%= form.label(:photo_filename, "Upload Profile Photo:")%>
+					<%= form.file_field(:photo_filename) %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= form.submit "Register" %>
+				</td>
+			</tr>
+		</table>
+	</div>
 <% end %>

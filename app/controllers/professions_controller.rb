@@ -211,4 +211,10 @@ class ProfessionsController < ApplicationController
 		@curr_user.save
 		redirect_to(:controller => "professions", :action => "results")
 	end
+
+	def delete
+		@user = User.find_by_id(session[:user_id])
+		@user.professions.delete(Profession.find_by_id(params[:id]))
+		redirect_to(:controller => "professions", :action => "myprofessions")
+	end
 end

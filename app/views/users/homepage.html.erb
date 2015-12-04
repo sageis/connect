@@ -43,9 +43,10 @@
             <h1><%= profession.title %></h1>
             <p><%= profession.description %></p>
           </a></li>
+          <%= link_to("Delete", controller: "users", action: "delete", id: profession.id) %>   
         <%end%>   
-<!--         <%= link_to("Delete", controller: "users", action: "delete") %>   
- -->
+        
+
       <li data-role="list-divider">my programs</li>
         <% for program in person.programs %>
           <li><%= program.title %></li>

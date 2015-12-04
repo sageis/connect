@@ -27,7 +27,9 @@
                   <h1><%= profession.title %></h1>
                   <p><%= profession.description %></p>
 
+
                 </a></li>
+                <%= link_to("Delete", controller: "professions", action: "delete", id: profession.id) %> 
               <%end%>      
     
           </ul>
