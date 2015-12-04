@@ -31,7 +31,7 @@
       <br/><br/><br/>
       
       <% @all_programs_ajax.each do |program| %>
-        <%= program.name %>
+        <%= program.title %>
         
       <% end %>
       <% @all_programs_ajax.clear %>
@@ -73,8 +73,12 @@
             
 
             <div>
-              <%= form.text_field :price, :placeholder => "price..." %> 
-            </div>    
+              <%= form.text_field :price, :placeholder => "Max $", id: 'ex8', type: 'text', data: {'slider-id' => 'ex1Slider',
+                        'slider-min' => '0',
+                        'slider-max' => '100',
+                        'slider-step' => '1',
+                        'slider-value' => '50' } %> 
+            </div>  <br/>  
 
             <div>
               <%= form.select(:region, @all_regions,{ :prompt => "select a region"}, class: "region_selector", :name => "region_name") %>
@@ -114,4 +118,10 @@
   <% end %> <!-- ends the if/else statement -->
 </div>
 
+<input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50"/>
+<script>
+  $("#ex8").slider({
+      tooltip: 'always'
+  });
+</script>
 

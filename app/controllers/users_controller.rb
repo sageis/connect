@@ -75,6 +75,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.first_name = params[:user][:first_name]
 		@user.last_name = params[:user][:last_name]
+		@user.quiz_taken = false
 		
 		# uploaded_io = params[:user][:photo_filename]
 
