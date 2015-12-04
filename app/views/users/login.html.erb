@@ -8,8 +8,10 @@
 <!-- Login Page -->
 <div data-role="page">
   <div data-role="header" id = "top-header">
-    <h1 id = "intro_title">connect</h1>
-    <center><%= image_tag("connectLogo", size: "50x50", id: "logo") %></center><br/>
+    <div id = "header-content">
+      <%= image_tag("connectLogo", size: "65x65", id: "logo") %>
+      <h1 class = "intro_title">connect</h1>
+    </div>
   </div>
 
   <center><h4> <%= params[:error] %> </h4></center>

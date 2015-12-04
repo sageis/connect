@@ -20,23 +20,35 @@
             <a href="#filter_panel" data-role="button" data-mini="true" id ="filter_button" data-inline="true">filter</a>
         </div>
         <div  class="ui-block-b" >
-          <input type="search" placeholder="begin searching..." data-mini="true" data-clear-btn="true"/>
+
+
+            <!--SEARCH BAR HERE -->
+            <%= form_tag do %>
+              <%= text_field_tag :substring, '', :id => "substring" %>
+            <% end %>
+            <br/><br/><br/>
+
         </div>
       </div>
 
       <!-- Dynamic search stuff -->
-      <%= form_tag do %>
-        <%= text_field_tag :substring, '', :id => "substring" %>
-      <% end %>
-      <br/><br/><br/>
       
       <% @all_programs_ajax.each do |program| %>
-        <%= program.title %>
+      <div class = "individual-program">
+        <a class = "button-link" href = "/programs/oneprogram/<%= program.id %>" >
+          <button type="button" class = "program-buttons">
+            <h3><%= program.title %></h3>
+          </button>
+        </a>
+      </div>
+        
         
       <% end %>
       <% @all_programs_ajax.clear %>
 
-      <div id="information"></div>
+      <div id="information">
+
+      </div>
 
       <%= javascript_tag "var parser = new Parser('substring', 'information', '<br/><br/><br/>', '<div id=\"information\">')"; %>
 

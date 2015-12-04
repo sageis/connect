@@ -15,13 +15,7 @@
  */
 
 
-  #top-header {
-      background-color: #0099FF;
-      border-color: #0099FF;
-      color: white;
-      border-bottom-width: 5px;
-      border-bottom-color: #66ccff;
-    }
+  
 
     #login-button {
       color: white;
@@ -71,10 +65,7 @@
       border-bottom-color: #66ccff;
     }
 
-    #intro_title {
-      color:white;
-      font-size: 25px;
-    }
+
 
     h1 {
       font-family: 'Open Sans';
@@ -236,9 +227,6 @@
       width: 90%;
     }
 
-    #logo {
-      border:none;
-    }
 
     #homepage_content{
       background-color: #F1F1F1;
@@ -246,3 +234,90 @@
       margin: 0 auto;
       border-radius: 25px;
     }
+
+    /*#information {
+      background-color: #F4F4F4;
+      border-color: #D5D5D5;
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 5px;
+      padding: 15px;
+    }
+*/
+
+
+    .program-buttons{
+      border: none;
+      background-color: #F4F4F4;
+      width: 99%;
+      border-radius: 3px;
+      margin: 0 auto;
+      display: block;
+      box-shadow: 0.5px 0.5px 1px;
+      margin-bottom: 1px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #D5D5D5;
+    }
+
+    .button-link{
+      text-decoration: none;
+    }
+
+    h1.intro_title{
+      display: inline;
+    }
+
+    #logo {
+      border: none;
+      display: inline;
+      margin-top: 20px;
+/*      margin-left: 38%;
+*/    }
+
+    .intro_title {
+      color:white;
+      font-size: 45px;
+      margin: 0 auto;
+    }
+
+    #top-header {
+      background-color: #0099FF;
+      border-color: #0099FF;
+      border-bottom-width: 5px;
+      border-bottom-color: #66ccff;
+      float: right;
+      width: 100%;
+      height: 125px;
+    }
+
+    #header-content {
+      text-align: center;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

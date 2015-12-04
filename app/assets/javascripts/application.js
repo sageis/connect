@@ -27,4 +27,6 @@ $(document).ready(function() {
 	    }, function(){
 	    $(this).css("background-color", "#0099FF");
 	});
+
+
 });
