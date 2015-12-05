@@ -1,8 +1,6 @@
 <% person = User.find_by_id(session[:user_id]) %>
   <% if (person == nil) then %>
-    <center><h1>
-      <%= link_to("Log in to view this page", controller: "users", action: "login") %>
-    </h1></center>
+    
   <% else %>
 
     <!--Header: Contains the navigation bar -->

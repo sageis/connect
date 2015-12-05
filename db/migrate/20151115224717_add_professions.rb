@@ -18,17 +18,17 @@ class AddProfessions < ActiveRecord::Migration
 		profession1.save(:validate => false)
 		#end of one profession
 
-		profession2 = Profession.new(:title => "Public Speaker", :description =>
-									"Public Speaking is a profession!",
-									:file_name => "public_speaker.jpg")
-		quiz2 = Quiz.new(:analyzing => 0, :creating => 0, :team_work => 0,
-						:build => 0, :writing => 0, :speaking => 1, :persuading => 1,
-						:taking_initiative => 1, :problem_solving => 0, :helping => 0,
-						:physical_activities => 0, :organizing => 0, :investigating => 0,
-						:growth => 1, :money => 0, :security => 0)
-		quiz2.save(:validate => false)
-		profession2.quiz_id = quiz2.id
-		profession2.save(:validate => false)
+		# profession2 = Profession.new(:title => "Public Speaker", :description =>
+		# 							"Public Speaking is a profession!",
+		# 							:file_name => "public_speaker.jpg")
+		# quiz2 = Quiz.new(:analyzing => 0, :creating => 0, :team_work => 0,
+		# 				:build => 0, :writing => 0, :speaking => 1, :persuading => 1,
+		# 				:taking_initiative => 1, :problem_solving => 0, :helping => 0,
+		# 				:physical_activities => 0, :organizing => 0, :investigating => 0,
+		# 				:growth => 1, :money => 0, :security => 0)
+		# quiz2.save(:validate => false)
+		# profession2.quiz_id = quiz2.id
+		# profession2.save(:validate => false)
 
 		profession3 = Profession.new(:title => "Real Estate Agent", :description =>
 									"Real estate agents help rent, buy, and/or sell" + 

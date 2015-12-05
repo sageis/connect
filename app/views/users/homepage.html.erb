@@ -9,6 +9,8 @@
 
 <!-- Homepage -->
 <div data-role="page">
+
+  
   <!-- figure out whose page it is -->
 
   <% person = User.find_by_id(session[:user_id]) %>
@@ -18,23 +20,19 @@
     </h1></center>
   <% else %>
     <%= render "layouts/nav" %>
-  
-
-  
 
 
-
-  <br/>
-  <br/>
+    <br/>
+    <br/>
 
   <% if (@tutorial) %>
-    <h1>IT'S MY FIRST TIME HERE YO! </h1>
+    
   <% end %>
     <center><%= image_tag(person.photo_filename, size: "125x125", id: "profile_picture") %></center>
 
     <h1><center><%= person.first_name + " " + person.last_name %></center></h1>
     
-    <ul data-role="listview" data-inset="true" data-divider-theme="a" id = "homepage_content" data-icon = "delete">
+    <ul data-role="listview" data-inset="true" data-divider-theme="a" id = "homepage_content" data-split-icon = "delete">
       <li data-role="list-divider">updates</li>
       <li>no new updates</li>
 
@@ -44,8 +42,9 @@
           <li><a href = "/professions/index">
             <h1><%= profession.title %></h1>
             <p><%= profession.description %></p>
+            <%= link_to("Delete", controller: "users", action: "delete", id: profession.id) %> 
           </a></li>
-          <%= link_to("Delete", controller: "users", action: "delete", id: profession.id) %>   
+            
         <%end%>   
         
 
@@ -56,6 +55,10 @@
     </ul>    
 
     </div>
+    <br>
+    <br>
+    <br>
+
 
    <!--  <div class = "homepage_content">
 

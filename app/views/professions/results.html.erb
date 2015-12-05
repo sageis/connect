@@ -92,6 +92,50 @@ $(document).ready(function(){
 
   <h1><center>Results</center></h1>
 
+  <ul data-role="listview" data-inset="true" data-divider-theme="a" id = "homepage_content" data-split-icon = "delete">
+
+    <li><a href = "">
+      <%= image_tag(@first.file_name, class: "myprofession_image") %>
+      <h1><%= @first.title %></h1>
+      <p><%= @first.description %></p>
+    </a></li>
+
+
+    <li><a href = "">
+      <%= image_tag(@second.file_name, class: "myprofession_image") %>
+      <h1><%= @second.title %></h1>
+      <p><%= @second.description %></p>
+    </a></li>
+
+
+    <li><a href = "">
+      <%= image_tag(@third.file_name, class: "myprofession_image") %>
+      <h1><%= @third.title %></h1>
+      <p><%= @third.description %></p>
+    </a></li>
+
+
+    <li><a href = "">
+      <%= image_tag(@fourth.file_name, class: "myprofession_image") %>
+      <h1><%= @fourth.title %></h1>
+      <p><%= @fourth.description %></p>
+    </a></li>
+
+    <li><a href = "">
+      <%= image_tag(@fifth.file_name, class: "myprofession_image") %>
+      <h1><%= @fifth.title %></h1>
+      <p><%= @fifth.description %></p>
+    </a></li>
+
+
+  </ul>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  
+<!-- 
     <div data-role="collapsible" data-collapsed="false">
       <h3><%= @first.title %></h3>
         <div class="ui-grid-a">
@@ -151,7 +195,7 @@ $(document).ready(function(){
           </div>
         </div>
     </div>
-</div>
+</div> -->
 
   
 </body>
