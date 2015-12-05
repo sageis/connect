@@ -30,7 +30,7 @@
            <tr>
            	<td>
            		<center>
-           		<i class="fa fa-usd"></i>
+           		<i class="fa fa-usd fa-lg"></i>
            		<br>
            		<% if (program.price == 0) %>
 					<p class = "price-txt">free</p>
@@ -41,7 +41,7 @@
            	</td>
            	<td>
            		<center>
-           			<i class="fa fa-bed"></i>
+           			<i class="fa fa-bed fa-lg"></i>
            			<br>
            			<% if (program.housed == true) %>
 						<p class = "housed-txt">housed</p>
@@ -52,7 +52,7 @@
            	</td>
            	<td>
            		<center>
-	           		<i class="fa fa-money"></i>
+	           		<i class="fa fa-money fa-lg"></i>
 	           		<br>
 	       			<% if (program.paid == true) %>
 						<p class = "paid-txt">paid</p>
@@ -67,14 +67,14 @@
            <tr>
            	<td>
            		<center>
-	           		<i class="fa fa-globe"></i>
+	           		<i class="fa fa-globe fa-lg"></i>
 	           		<br>
 	           		<p class = "region-txt"><%= program.region %></p>
 	           	</center>
            	</td>
            	<td>
            		<center>
-	           		<i class="fa fa-check"></i>
+	           		<i class="fa fa-check fa-lg"></i>
 	           		<br>
 	       			<% if (program.applied == true) %>
 						<p class = "paid-txt">app done</p>
@@ -86,20 +86,15 @@
            	</td>
            	<td>
            		<center>
-           			<i class="fa fa-calendar"></i>
+           			<i class="fa fa-calendar fa-lg"></i>
            			<br>
-           			<p class = "duedate-txt"><%= program.due_date %></p>
+           			<p class = "duedate-txt">01-06-16</p>
            		</center>
            	</td>
            </tr>
-
-<!-- website link
- -->
-<!-- 
-           <tr><td>3,1</td><td>in</td><td>80%</td></tr>
-           <tr><td>4,1</td><td>jQuery</td><td>20%</td></tr>
-           <tr><td>5,1</td><td>mobile</td><td>10%</td></tr> -->
        </table>
+
+       
 		    
 		<div class = "program_description">
 			<p><%= program.description %></p>
@@ -120,6 +115,10 @@
 		<%end%>
 
 		<%= link_to "add review", {controller: "reviews", action: "new", id: program.id}, :class => "ui-btn", :id => "add_review"%>
+
+		<div class = "program-link-txt" id = "weblink">
+       	<a href = "<%= program.website_link %>" id = "webtxt">apply to program</a>
+    </div>
 	<%= link_to "add to my programs", {controller: "programs", action: "save", id: program.id}, :class => "ui-btn", :id => "add_program" %>
 
 
