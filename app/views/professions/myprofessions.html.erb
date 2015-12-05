@@ -19,32 +19,25 @@
       <center>
       <h1>My Professions </h1>
 
-        <ul data-role="listview" data-inset="true" data-divider-theme="a" id = "homepage_content" data-icon = "delete">
+        <ul data-role="listview" data-inset="true" data-divider-theme="a" id = "homepage_content" data-split-icon = "delete">
 
               <%for profession in person.professions %>
                 <li><a href = "">
                   <%= image_tag(profession.file_name, class: "myprofession_image") %>
                   <h1><%= profession.title %></h1>
                   <p><%= profession.description %></p>
-
+                  <%= link_to("Delete", controller: "professions", action: "delete", id: profession.id) %>
 
                 </a></li>
-                <%= link_to("Delete", controller: "professions", action: "delete", id: profession.id) %> 
+                 
               <%end%>      
     
           </ul>
+          <br><br>
       
+    <%= link_to "Find More Professions", {controller: "professions", action: "index"}, :class=>"ui-btn", :id=>"find-professions-btn" %>
+    <%= link_to "Retake Profession Quiz", {controller: "professions", action: "quiz"}, :class=>"ui-btn", :id=>"retake-professions-btn" %>
 
-    <button type="button" id = "find-more-button"><%= link_to "Find More Professions", controller: "professions", action: "index" %></button>
-    <!-- <div id = "find-prof-button">
-      <%= link_to "Find More Professions", controller: "professions", action: "index" %>
-    </div> -->
-
-    <button type="button" id = "retake-profession-quiz"><%= link_to "Retake Profession Quiz", controller: "professions", action: "quiz" %></button>
-
-  <!--   <div id = "retake-quiz-button">
-      <%= link_to "Retake Profession Quiz", controller: "professions", action: "quiz" %>
-    </div> -->
 
     </center>
     </div>

@@ -15,7 +15,7 @@
 			<% end %>
 
 		<div class="ui-grid-solo">
-			<h1><center><%= program.title %></center></h1>
+			<h2><center><strong><%= program.title %></strong></center></h2>
 		</div>
 
 		<div class="ui-grid-solo">
@@ -23,41 +23,105 @@
 				<h1><center><%= profession.title %></center></h1>
 			<% end %>
 		</div>
+    
+		<center><%= image_tag(program.photo_file_name, class: "program_image", id: "img-alone") %><center>
+
+<table>
+           <tr>
+           	<td>
+           		<center>
+           		<i class="fa fa-usd"></i>
+           		<br>
+           		<% if (program.price == 0) %>
+					<p class = "price-txt">free</p>
+				<% else %>
+					<p class = "price-txt"><%= program.price %></p>
+				<% end %>
+				</center>
+           	</td>
+           	<td>
+           		<center>
+           			<i class="fa fa-bed"></i>
+           			<br>
+           			<% if (program.housed == true) %>
+						<p class = "housed-txt">housed</p>
+					<% else %>
+						<p class = "housed-txt">unhoused</p>
+					<% end %>
+           		</center>
+           	</td>
+           	<td>
+           		<center>
+	           		<i class="fa fa-money"></i>
+	           		<br>
+	       			<% if (program.paid == true) %>
+						<p class = "paid-txt">paid</p>
+					<% else %>
+						<p class = "paid-txt">unpaid</p>
+					<% end %>  
+				</center>       		
+           	</td>
+           </tr>
 
 
+           <tr>
+           	<td>
+           		<center>
+	           		<i class="fa fa-globe"></i>
+	           		<br>
+	           		<p class = "region-txt"><%= program.region %></p>
+	           	</center>
+           	</td>
+           	<td>
+           		<center>
+	           		<i class="fa fa-check"></i>
+	           		<br>
+	       			<% if (program.applied == true) %>
+						<p class = "paid-txt">app done</p>
+					<% else %>
+						<p class = "paid-txt">app incomplete</p>
+					<% end %> 
+	           	</center>
 
+           	</td>
+           	<td>
+           		<center>
+           			<i class="fa fa-calendar"></i>
+           			<br>
+           			<p class = "duedate-txt"><%= program.due_date %></p>
+           		</center>
+           	</td>
+           </tr>
 
-		    
-		<center><%= image_tag(program.photo_file_name, class: "program_image") %><center>
+<!-- website link
+ -->
+<!-- 
+           <tr><td>3,1</td><td>in</td><td>80%</td></tr>
+           <tr><td>4,1</td><td>jQuery</td><td>20%</td></tr>
+           <tr><td>5,1</td><td>mobile</td><td>10%</td></tr> -->
+       </table>
 		    
 		<div class = "program_description">
 			<p><%= program.description %></p>
 		</div>
 
-
+		<% if (program.reviews.size != 0) %>  
+			<h2 id = "reviews-tag">reviews</h2>
+			<% for review in program.reviews %>
+				<div class="row">
+					<div class = "review-content">
+						<p class = "review-review">"<%= review.review %>"</p>
+						<p class = "review-name"><%= (User.find_by_id(review.user_id)).first_name %>
+						<%= (User.find_by_id(review.user_id)).last_name %></p>
+						<p class = "timestamp"><%= review.date_time.getlocal %></p>
+					</div>
+				</div>
+			<% end %>
+		<%end%>
 
 		<%= link_to "add review", {controller: "reviews", action: "new", id: program.id}, :class => "ui-btn", :id => "add_review"%>
-		<%= link_to "add to my programs", {controller: "programs", action: "save", id: program.id}, :class => "ui-btn", :id => "add_program" %>
-		    
-		
+	<%= link_to "add to my programs", {controller: "programs", action: "save", id: program.id}, :class => "ui-btn", :id => "add_program" %>
 
-			
-			<table>
-				<% for review in program.reviews %>
-					<tr>
-						<td>
-							<div class="row">
-								<%= review.review %>
-								<div class="review_date">
-								<%= review.date_time.getlocal %>
-								</div>
-								<br/>
-							</div>
-							<br/>
-						</td>
-					</tr>
-				<% end %>
-			</table>
 
 	<% end %>
 </div>

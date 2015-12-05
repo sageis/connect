@@ -108,7 +108,7 @@
       font-weight: 500;
       line-height: 26.4px;
       color: #808080; 
-      line-height: 110%;   
+      line-height: 115%;   
     }
 
     img {
@@ -168,17 +168,13 @@
       font-family: 'Open Sans';
       width: 200px;
       border-radius: 5px;
+      margin-bottom: 50px;
     }
 
     #profile_picture {
       border-radius: 50%;
       border: 0;
       box-shadow: 5px 5px 5px #B0B0B0;
-    }
-
-    .program_image {
-      border:0;
-      width: 100px;
     }
 
     .ui-panel-inner { 
@@ -205,6 +201,8 @@
 
     .review_image {
       border: 0;
+      width: 250px;
+      height: auto;
     }
 
     .review_comment {
@@ -368,11 +366,106 @@
     text-align: center; 
    }
 
+   #find-professions-btn{
+      color: white;
+      background-color: #0099FF;
+      text-shadow: none;
+      font-family: 'Open Sans';
+      width: 20%;
+      border-radius: 5px;
+   }
 
+   #retake-professions-btn{
+      color: white;
+      background-color: #0099FF;
+      text-shadow: none;
+      font-family: 'Open Sans';
+      width: 20%;
+      border-radius: 5px;
+   }
+/*
+      .program_image{
+    border: none;
+    width: 250px;
+    height: auto;
+   }*/
 
+   #img-alone{
+    border: none;
+    width: 250px;
+    height: auto;
+   }
 
+   .timestamp{
+    font-size: 10px;
+    text-align: right;
+    margin-right: 30px;
+   }
 
+   .row {
+    background-color: #F4F4F4;
+    width: 90%;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #D5D5D5;
+    text-align: left;
+    padding-left: 15px;
+   }
 
+   #reviews-tag{
+    text-align: center; 
+    margin-top: 50px;
+   }
+
+   .review-review{
+    font-size: 18px;
+   }
+
+   .review-name {
+    text-align: right;
+    margin-right: 30px;
+   }
+
+   .program-details{
+    background-color: #F4F4F4;
+    width: 90%;
+    border-radius: 10px;
+    text-align: left;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #D5D5D5;
+   }
+
+   .program-price{
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #D5D5D5;
+   }
+
+   .program-price{
+    padding-left: 15px;
+    padding-bottom: 1px;
+   }
+
+   table {
+    color: black;
+    background: #fff;
+    border: 1px solid #b4b4b4;
+    font: bold 17px helvetica;
+    padding: 0;
+    margin-top:10px;
+    width: 90%;
+    -webkit-border-radius: 8px;
+  }
+       
+  table tr td {
+      color: #666;
+      border-bottom: 1px solid #b4b4b4;
+      border-right: 1px solid #b4b4b4;
+      padding: 10px 10px 10px 10px;
+      background-image: -webkit-linear-gradient(top, #fdfdfd, #eee);
+  }
 
 
 
